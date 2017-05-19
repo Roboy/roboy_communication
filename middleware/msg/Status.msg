@@ -1,0 +1,2 @@
+uint8 statusCode
+uint8 steered
