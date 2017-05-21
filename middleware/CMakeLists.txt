@@ -17,6 +17,7 @@ add_message_files(
         FILES
         ControllerRequest.msg
         ControllerState.msg
+        DarkRoom.msg
         MotorStatus.msg
         MotorCommand.msg
         MotorConfig.msg
