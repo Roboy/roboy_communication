@@ -50,5 +50,5 @@ generate_messages(
         DEPENDENCIES std_msgs std_srvs
 )
 
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation
+catkin_package( CATKIN_DEPENDS message_runtime std_msgs std_srvs
                 INCLUDE_DIRS)
