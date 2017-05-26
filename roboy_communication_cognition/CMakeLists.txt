@@ -4,9 +4,7 @@ project( roboy_communication_cognition )
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 find_package(catkin REQUIRED cmake_modules COMPONENTS
-        roscpp
         std_msgs
-        std_srvs
         message_generation
 )
 
@@ -16,15 +14,11 @@ include_directories(
 )
 
 add_message_files(
-        DIRECTORY
-        msg
         FILES
         SpeechSynthesis.msg
 )
 
 add_service_files(
-        DIRECTORY
-        srv
         FILES
         AssertProperty.srv
         CallQuery.srv
@@ -47,8 +41,9 @@ add_service_files(
 )
 
 generate_messages(
-        DEPENDENCIES std_msgs std_srvs
+  DEPENDENCIES
+  std_msgs
 )
 
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation
+catkin_package( CATKIN_DEPENDS message_runtime std_msgs
                 INCLUDE_DIRS)
