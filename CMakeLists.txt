@@ -3,3 +3,5 @@ project( roboy_communication )
 
 add_subdirectory( middleware )
 add_subdirectory( simulation )
+add_subdirectory( roboy_communication_control )
+add_subdirectory( roboy_communication_cognition )
