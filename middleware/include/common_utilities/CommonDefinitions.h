@@ -108,16 +108,16 @@ typedef struct
 	int32_t outputNegMax; /*!< maximum control output in the negative direction in counts, max -4000*/
 	int32_t spPosMax;/*<!Positive limit for the set point.*/
 	int32_t spNegMax;/*<!Negative limit for the set point.*/
-	uint16_t Kp;/*!<Gain of the proportional component*/
-	uint16_t Ki;/*!<Gain of the integral component*/
-	uint16_t Kd;/*!<Gain of the differential component*/
-	uint16_t forwardGain; /*!<Gain of  the feed-forward term*/
-	uint16_t deadBand;/*!<Optional deadband threshold for the control response*/
+	int16_t Kp;/*!<Gain of the proportional component*/
+	int16_t Ki;/*!<Gain of the integral component*/
+	int16_t Kd;/*!<Gain of the differential component*/
+	int16_t forwardGain; /*!<Gain of  the feed-forward term*/
+	int16_t deadBand;/*!<Optional deadband threshold for the control response*/
 	int16_t IntegralPosMax; /*!<Integral positive component maximum*/
 	int16_t IntegralNegMax; /*!<Integral negative component maximum*/
 	float radPerEncoderCount = {2 * 3.14159265359f / (2000.0f * 53.0f)};
 }control_Parameters_t;
 
-#define NUMBER_OF_MOTORS_PER_FPGA 7
+#define NUMBER_OF_MOTORS_PER_FPGA 14
 
 #endif //ROBOY_CONTROL_COMMONDEFINITIONS_H
