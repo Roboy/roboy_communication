@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>roboy_communication_cognition</name>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <description>Custom Messages and Services for cognition</description>
   <maintainer email="unicorn@roboy.org">Alona Kharchenko</maintainer>
   <license>BSD-3</license>
