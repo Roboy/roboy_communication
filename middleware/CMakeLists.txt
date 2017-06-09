@@ -18,6 +18,7 @@ add_message_files(
         ControllerRequest.msg
         ControllerState.msg
         DarkRoom.msg
+        MagneticSensor.msg
         MotorStatus.msg
         MotorCommand.msg
         MotorConfig.msg
