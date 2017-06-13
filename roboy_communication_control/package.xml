@@ -3,7 +3,7 @@
   <name>roboy_communication_control</name>
   <version>0.0.1</version>
   <description>Custom Messages and Services for control</description>
-  <maintainer email="john.doe@roboy.org">John Doe</maintainer>
+  <maintainer email="unicorn@roboy.org">John Doe</maintainer>
   <license>BSD-3</license>
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roscpp</build_depend>

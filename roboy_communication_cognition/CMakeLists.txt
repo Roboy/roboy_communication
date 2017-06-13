@@ -9,7 +9,6 @@ find_package(catkin REQUIRED cmake_modules COMPONENTS
 )
 
 include_directories(    
-        # include
         ${catkin_INCLUDE_DIRS}
 )
 
