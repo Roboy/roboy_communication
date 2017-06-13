@@ -6,6 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 find_package(catkin REQUIRED cmake_modules COMPONENTS
         roscpp
         std_msgs
+        geometry_msgs
         std_srvs
         message_generation
         )
@@ -15,6 +16,7 @@ add_message_files(
         DIRECTORY
         msg
         FILES
+        ArucoPose.msg
         ControllerRequest.msg
         ControllerState.msg
         DarkRoom.msg
@@ -44,7 +46,7 @@ add_service_files(
 )
 
 generate_messages(
-        DEPENDENCIES std_msgs std_srvs
+        DEPENDENCIES std_msgs geometry_msgs std_srvs
 )
 
 catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation
