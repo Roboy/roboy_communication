@@ -20,6 +20,7 @@ add_message_files(
         ControllerRequest.msg
         ControllerState.msg
         DarkRoom.msg
+        JointAngle.msg
         JointCommand.msg
         JointStatus.msg
         MagneticSensor.msg
