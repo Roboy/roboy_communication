@@ -1,1 +1,2 @@
-float32[] dq
+string[] link_name
+float32[] angle
