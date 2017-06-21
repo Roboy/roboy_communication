@@ -1,0 +1,9 @@
+# this is the target position you want new joint angles for
+geometry_msgs/Vector3 targetPosition
+# these are the initial joint angles in degrees
+float64[] initial_angles
+# visualize result
+bool inspect
+---
+# these are the resulting joint angles from inverse kinematics in degrees
+float64[] angles

@@ -19,6 +19,7 @@ add_message_files(
         ArucoPose.msg
         ControllerRequest.msg
         ControllerState.msg
+        DanceCommand.msg
         DarkRoom.msg
         JointAngle.msg
         JointCommand.msg
@@ -43,6 +44,7 @@ add_service_files(
         srv
         FILES
         Initialize.srv
+        InverseKinematics.srv
         Record.srv
         SetTrajectory.srv
         EmergencyStop.srv
