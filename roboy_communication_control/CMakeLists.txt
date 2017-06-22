@@ -19,7 +19,8 @@ add_message_files(
         DIRECTORY
         msg
         FILES
-        Emotion.msg        
+        Emotion.msg
+        SystemNotification.msg
 )
 
 add_service_files(
