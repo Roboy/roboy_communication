@@ -24,6 +24,7 @@ add_service_files(
         CheckProperty.srv
         CheckQuery.srv
         CreateInstance.srv
+        DataQuery.srv
         DetectFace.srv
         EvalSeq2Seq.srv
         FindInstances.srv
