@@ -19,7 +19,12 @@ add_message_files(
         DIRECTORY
         msg
         FILES
-        Emotion.msg        
+        Emotion.msg
+        DangerNotification.msg
+        ErrorNotification.msg
+        WarningNotification.msg
+        DebugNotification.msg
+        InfoNotification.msg
 )
 
 add_service_files(
