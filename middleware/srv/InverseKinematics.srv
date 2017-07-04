@@ -1,7 +1,12 @@
 # this is the target position you want new joint angles for
 geometry_msgs/Vector3 targetPosition
+# this is the lighthouse sensor id
+int32 lighthouse_sensor_id
 # these are the initial joint angles in degrees
 float64[] initial_angles
+# initial position of ankle left
+float64 ankle_x
+float64 ankle_y
 # visualize result
 bool inspect
 ---

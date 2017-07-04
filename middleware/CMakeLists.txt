@@ -21,6 +21,7 @@ add_message_files(
         ControllerState.msg
         DanceCommand.msg
         DarkRoom.msg
+        DarkRoomSensor.msg
         JointAngle.msg
         JointCommand.msg
         JointStatus.msg
