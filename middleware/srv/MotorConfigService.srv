@@ -1,0 +1,3 @@
+MotorConfig config
+---
+int32[] mode

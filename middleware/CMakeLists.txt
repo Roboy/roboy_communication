@@ -46,6 +46,7 @@ add_service_files(
         FILES
         Initialize.srv
         InverseKinematics.srv
+        MotorConfigService.srv
         Record.srv
         SetTrajectory.srv
         EmergencyStop.srv
