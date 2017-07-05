@@ -7,16 +7,6 @@
 
 #include <stdint.h>
 
-enum NotificationLevel {  UNDEFINED_LEVEL = 0,
-	DEBUG_LEVEL,
-	INFO_LEVEL,
-	WARNING_LEVEL,
-	DANGER_LEVEL};
-
-enum NotificationID {  UNDEFINED = 0,
-	DEAD_MOTOR_NOTIFICATION
-};
-
 enum ControlMode {UNDEFINED_CONTROL = 0, POSITION_CONTROL, VELOCITY_CONTROL, FORCE_CONTROL, MUSCLE_ACTIVITY_CONTROL};
 
 static const char * controlModeStrings[] = { "undefined", "position", "velocity", "force", "muscle_activity" };
