@@ -1,2 +1,2 @@
-float32 x
-float32 y
+int32 sensorID
+geometry_msgs/Vector3 pos

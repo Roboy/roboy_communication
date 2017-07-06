@@ -12,3 +12,5 @@ bool inspect
 ---
 # these are the resulting joint angles from inverse kinematics in degrees
 float64[] angles
+# this is the position result
+geometry_msgs/Vector3 resultPosition

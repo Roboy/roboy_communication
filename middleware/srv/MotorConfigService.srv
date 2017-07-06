@@ -1,3 +1,4 @@
 MotorConfig config
+int32[] setPoints
 ---
 int32[] mode
