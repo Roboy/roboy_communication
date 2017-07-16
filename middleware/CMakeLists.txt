@@ -44,6 +44,7 @@ add_service_files(
         DIRECTORY
         srv
         FILES
+        DanceTrajectory.srv
         Initialize.srv
         InverseKinematics.srv
         MotorConfigService.srv
