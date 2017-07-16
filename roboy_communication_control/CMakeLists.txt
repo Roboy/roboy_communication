@@ -28,7 +28,9 @@ add_service_files(
         FILES
         MoveYaw.srv  
         PerformMovement.srv  
-        ShowEmotion.srv
+        ShowEmotion.srv  
+        StartRecordTrajectory.srv  
+        StopRecordTrajectory.srv
 )
 
 generate_messages(
