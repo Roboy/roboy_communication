@@ -26,6 +26,7 @@ add_service_files(
         CreateInstance.srv
         DataQuery.srv
         DetectFace.srv
+        DetectIntent.srv
         EvalSeq2Seq.srv
         FindInstances.srv
         GenerateAnswer.srv
