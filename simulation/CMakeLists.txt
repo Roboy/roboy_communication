@@ -30,6 +30,8 @@ add_message_files(
         MotorControl.msg
         RecordingControl.msg
         Tendon.msg
+	TendonInitialization.msg
+	TendonUpdate.msg
         VisualizationControl.msg
 )
 
