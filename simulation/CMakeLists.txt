@@ -26,6 +26,7 @@ add_message_files(
         Input.msg
         Joint.msg
         LegState.msg
+	Model.msg
         MotorControl.msg
         RecordingControl.msg
         Tendon.msg

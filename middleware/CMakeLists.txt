@@ -34,6 +34,7 @@ add_message_files(
         MotorTrajectoryControl.msg
         MuscleState.msg
         Pose.msg
+	Position.msg
         RoboyState.msg
         Steer.msg
         Status.msg
