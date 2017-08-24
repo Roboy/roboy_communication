@@ -26,13 +26,16 @@ add_service_files(
         CheckProperty.srv
         CheckQuery.srv
         CreateInstance.srv
+	DescribeScene.srv
         DataQuery.srv
         DetectFace.srv
         DetectIntent.srv
         EvalSeq2Seq.srv
         FindInstances.srv
+ 	FindObject.srv
         GenerateAnswer.srv
         GetObject.srv
+ 	LookAtSpeaker.srv
         RecognizeObject.srv
         RecognizeSpeech.srv
         SaveObject.srv
