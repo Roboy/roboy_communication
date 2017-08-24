@@ -14,6 +14,8 @@ include_directories(
 
 add_message_files(
         FILES
+	FaceCoordinates.msg
+	NewFacialFeatures.msg
         SpeechSynthesis.msg
 )
 
