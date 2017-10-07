@@ -25,6 +25,7 @@ add_message_files(
         JointAngle.msg
         JointCommand.msg
         JointStatus.msg
+		LighthousePoseCorrection.msg
         MagneticSensor.msg
         MotorStatus.msg
         MotorCommand.msg
