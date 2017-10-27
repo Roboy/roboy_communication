@@ -16,6 +16,7 @@ add_message_files(
         DIRECTORY
         msg
         FILES
+		ADCvalue.msg
         ArucoPose.msg
         ControllerRequest.msg
         ControllerState.msg
@@ -35,7 +36,7 @@ add_message_files(
         MotorTrajectoryControl.msg
         MuscleState.msg
         Pose.msg
-	Position.msg
+		Position.msg
         RoboyState.msg
         Steer.msg
         Status.msg
@@ -50,6 +51,7 @@ add_service_files(
         DanceTrajectory.srv
         Initialize.srv
         InverseKinematics.srv
+		MotorCalibrationService.srv
         MotorConfigService.srv
         Record.srv
         SetTrajectory.srv
