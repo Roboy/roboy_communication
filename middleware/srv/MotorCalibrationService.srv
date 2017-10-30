@@ -7,3 +7,5 @@ int32 displacement_min
 int32 displacement_max
 ---
 float32[] estimated_spring_parameters
+float64[] load
+float64[] displacement
