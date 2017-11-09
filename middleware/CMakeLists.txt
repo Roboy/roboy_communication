@@ -23,6 +23,7 @@ add_message_files(
         DanceCommand.msg
         DarkRoom.msg
         DarkRoomSensor.msg
+        DarkRoomStatistics.msg
         JointAngle.msg
         JointCommand.msg
         JointStatus.msg
