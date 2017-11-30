@@ -120,4 +120,26 @@ typedef struct
 
 #define NUMBER_OF_MOTORS_PER_FPGA 14
 
+typedef struct {
+	uint16_t fw_version;
+	uint32_t ID;
+	float fcal_0_phase = 0.0f;
+	float fcal_1_phase = 0.0f;
+	float fcal_0_tilt = 0.0f;
+	float fcal_1_tilt = 0.0f;
+	uint8_t unlock_count;
+	uint8_t hw_version;
+	float fcal_0_curve = 0.0f;
+	float fcal_1_curve = 0.0f;
+	float accel_dir_x;
+	float accel_dir_y;
+	float accel_dir_z;
+	float fcal_0_gibphase = 0.0f;
+	float fcal_1_gibphase = 0.0f;
+	float fcal_0_gibmag = 0.0f;
+	float fcal_1_gibmag = 0.0f;
+	uint8_t mode;
+	uint8_t faults;
+}OOTXframe;
+
 #endif //ROBOY_CONTROL_COMMONDEFINITIONS_H
