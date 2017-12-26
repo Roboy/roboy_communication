@@ -98,7 +98,8 @@ enum PLANE{
 enum CONTROLMODES{
 	POSITION = 0,
 	VELOCITY,
-	DISPLACEMENT
+	DISPLACEMENT,
+	FORCE
 };
 
 typedef struct
