@@ -93,7 +93,7 @@ enum PLANE{
 // Converts radians to degrees.
 #define radiansToDegrees(angleRadians) (angleRadians * 180.0f / (float)M_PI)
 
-#define NUMBER_OF_CONTROL_MODES 3
+#define NUMBER_OF_CONTROL_MODES 4
 
 enum CONTROLMODES{
 	POSITION = 0,
@@ -105,15 +105,15 @@ enum CONTROLMODES{
 typedef struct
 {
 	uint8_t control_mode;
-	int32_t outputPosMax; /*!< maximum control output in the positive direction in counts, max 4000*/
-	int32_t outputNegMax; /*!< maximum control output in the negative direction in counts, max -4000*/
+	int32_t outputPosMax = 4000; /*!< maximum control output in the positive direction in counts, max 4000*/
+	int32_t outputNegMax = -4000; /*!< maximum control output in the negative direction in counts, max -4000*/
 	int32_t spPosMax;/*<!Positive limit for the set point.*/
 	int32_t spNegMax;/*<!Negative limit for the set point.*/
-	int16_t Kp;/*!<Gain of the proportional component*/
-	int16_t Ki;/*!<Gain of the integral component*/
-	int16_t Kd;/*!<Gain of the differential component*/
-	int16_t forwardGain; /*!<Gain of  the feed-forward term*/
-	int16_t deadBand;/*!<Optional deadband threshold for the control response*/
+	int16_t Kp = 100;/*!<Gain of the proportional component*/
+	int16_t Ki = 0;/*!<Gain of the integral component*/
+	int16_t Kd = 0;/*!<Gain of the differential component*/
+	int16_t forwardGain = 0; /*!<Gain of  the feed-forward term*/
+	int16_t deadBand = 0;/*!<Optional deadband threshold for the control response*/
 	int16_t IntegralPosMax; /*!<Integral positive component maximum*/
 	int16_t IntegralNegMax; /*!<Integral negative component maximum*/
 	float radPerEncoderCount = {2 * 3.14159265359f / (2000.0f * 53.0f)};
