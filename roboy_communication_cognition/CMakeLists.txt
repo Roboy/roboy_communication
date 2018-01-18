@@ -19,6 +19,7 @@ add_message_files(
 	SpeechSynthesis.msg
     AudioData.msg
 	DirVec.msg
+    FreqPower.msg
 )
 
 add_service_files(
