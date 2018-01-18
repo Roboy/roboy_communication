@@ -13,11 +13,12 @@ include_directories(
 )
 
 add_message_files(
-        FILES
+    FILES
 	FaceCoordinates.msg
 	NewFacialFeatures.msg
-        SpeechSynthesis.msg
+	SpeechSynthesis.msg
     AudioData.msg
+	DirVec.msg
 )
 
 add_service_files(
