@@ -47,6 +47,12 @@ add_service_files(
         ShowPropertyValue.srv
         Talk.srv
         TrainSeq2Seq.srv
+		# audio
+		moveJointSequence.srv
+		whichTones.srv
+		setLeds.srv
+		qualityOfTone.srv
+		qualityOfTones.srv
 )
 
 generate_messages(
