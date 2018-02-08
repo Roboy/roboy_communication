@@ -14,45 +14,43 @@ include_directories(
 
 add_message_files(
     FILES
+    AudioData.msg
+	AudioInfo.msg
+	DirectionVector.msg
 	FaceCoordinates.msg
 	NewFacialFeatures.msg
 	SpeechSynthesis.msg
-    AudioData.msg
-	DirVec.msg
-    FreqPower.msg
 )
 
 add_service_files(
-        FILES
-        AssertProperty.srv
-        CallQuery.srv
-        CheckProperty.srv
-        CheckQuery.srv
-        CreateInstance.srv
+    FILES
+	AssertProperty.srv
+	CallQuery.srv
+	CheckProperty.srv
+	CheckQuery.srv
+	CreateInstance.srv
+	DataQuery.srv
 	DescribeScene.srv
-        DataQuery.srv
-        DetectFace.srv
-        DetectIntent.srv
-        EvalSeq2Seq.srv
-        FindInstances.srv
- 	FindObject.srv
-        GenerateAnswer.srv
-        GetObject.srv
- 	LookAtSpeaker.srv
-        RecognizeObject.srv
-        RecognizeSpeech.srv
-        SaveObject.srv
-        ShowInstances.srv
-        ShowProperty.srv
-        ShowPropertyValue.srv
-        Talk.srv
-        TrainSeq2Seq.srv
-		# audio
-		moveJointSequence.srv
-		whichTones.srv
-		setLeds.srv
-		qualityOfTone.srv
-		qualityOfTones.srv
+	DetectFace.srv
+	DetectIntent.srv
+	EvalSeq2Seq.srv
+	FindInstances.srv
+	FindObject.srv
+	GenerateAnswer.srv
+	GetObject.srv
+	LookAtSpeaker.srv
+	QualityOfTone.srv
+	QualityOfTones.srv
+	RecognizeObject.srv
+	RecognizeSpeech.srv
+	SaveObject.srv
+	ShowInstances.srv
+	ShowProperty.srv
+	ShowPropertyValue.srv
+	Talk.srv
+	TrainSeq2Seq.srv
+	WhichTones.srv
+
 )
 
 generate_messages(
