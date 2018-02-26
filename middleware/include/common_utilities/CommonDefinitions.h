@@ -149,7 +149,7 @@ typedef struct
 	float radPerEncoderCount = {2 * 3.14159265359f / (2000.0f * 53.0f)};
 }control_Parameters_t;
 
-#define NUMBER_OF_MOTORS_PER_FPGA 14
+#define NUMBER_OF_MOTORS_PER_FPGA 12
 
 typedef struct {
 	uint16_t fw_version;
