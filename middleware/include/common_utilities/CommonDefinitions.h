@@ -150,6 +150,7 @@ typedef struct
 }control_Parameters_t;
 
 #define NUMBER_OF_MOTORS_PER_FPGA 12
+#define NUMBER_OF_FPGAS 6
 
 typedef struct {
 	uint16_t fw_version;
