@@ -1,4 +1,5 @@
 string name
 int8[] idList
 ---
+std_msgs/Float32MultiArray trajectories
 bool success
