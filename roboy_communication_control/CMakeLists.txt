@@ -31,7 +31,9 @@ add_service_files(
         DIRECTORY
         srv
         FILES
-        MoveYaw.srv  
+        ListTrajectories.srv
+        MoveYaw.srv
+        PerformBehavior.srv
         PerformMovement.srv  
         ShowEmotion.srv  
         StartRecordTrajectory.srv  

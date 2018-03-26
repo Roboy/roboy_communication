@@ -57,6 +57,7 @@ add_service_files(
 		MotorCalibrationService.srv
         MotorConfigService.srv
         Record.srv
+		SetInt16.srv
         SetTrajectory.srv
         EmergencyStop.srv
 )
