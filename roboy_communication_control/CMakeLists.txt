@@ -8,6 +8,8 @@ find_package(catkin REQUIRED cmake_modules COMPONENTS
         std_msgs
         std_srvs
         message_generation
+        actionlib_msgs
+        actionlib
 )
 
 include_directories(    
@@ -25,6 +27,7 @@ add_message_files(
         WarningNotification.msg
         DebugNotification.msg
         InfoNotification.msg
+        StartRecordTrajectory.msg
 )
 
 add_service_files(
@@ -35,13 +38,19 @@ add_service_files(
         MoveYaw.srv
         PerformBehavior.srv
         PerformMovement.srv  
-        ShowEmotion.srv  
-        StartRecordTrajectory.srv  
-        StopRecordTrajectory.srv
+        ShowEmotion.srv
+)
+
+add_action_files(
+        DIRECTORY
+        action
+        FILES
+        StartRecordTrajectory.action
+        StopRecordTrajectory.action
 )
 
 generate_messages(
-        DEPENDENCIES std_msgs std_srvs
+        DEPENDENCIES std_msgs std_srvs actionlib_msgs
 )
 
 catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation
