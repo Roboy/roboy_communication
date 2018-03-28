@@ -21,6 +21,7 @@ add_message_files(
         DIRECTORY
         msg
         FILES
+        Behavior.msg
         Emotion.msg
         DangerNotification.msg
         ErrorNotification.msg
@@ -34,8 +35,9 @@ add_service_files(
         DIRECTORY
         srv
         FILES
-        ListTrajectories.srv
+        ListItems.srv
         MoveYaw.srv
+        PerformActions.srv
         PerformBehavior.srv
         PerformMovement.srv  
         ShowEmotion.srv

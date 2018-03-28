@@ -1,3 +1,0 @@
-string folder # path on FPGA
----
-string[] trajectories
