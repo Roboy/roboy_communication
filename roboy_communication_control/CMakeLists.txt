@@ -9,7 +9,6 @@ find_package(catkin REQUIRED cmake_modules COMPONENTS
         std_srvs
         message_generation
         actionlib_msgs
-        actionlib
 )
 
 include_directories(    
@@ -47,6 +46,8 @@ add_action_files(
         DIRECTORY
         action
         FILES
+        PerformMovement.action
+        PerformMovements.action
         StartRecordTrajectory.action
         StopRecordTrajectory.action
 )
@@ -55,5 +56,5 @@ generate_messages(
         DEPENDENCIES std_msgs std_srvs actionlib_msgs
 )
 
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation
+catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation actionlib_msgs
                 INCLUDE_DIRS)
