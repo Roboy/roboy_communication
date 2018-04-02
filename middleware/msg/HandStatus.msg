@@ -1,3 +1,5 @@
+# six current measurements per arm board
+uint16[] current
 float32[] gyro_x
 float32[] gyro_y
 float32[] gyro_z
