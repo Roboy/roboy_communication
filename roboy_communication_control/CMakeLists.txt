@@ -21,6 +21,7 @@ add_message_files(
         msg
         FILES
         Behavior.msg
+	ControlLeds.msg
         Emotion.msg
         DangerNotification.msg
         ErrorNotification.msg
