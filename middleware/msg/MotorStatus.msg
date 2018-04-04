@@ -1,4 +1,4 @@
-int32 id
+uint8 id
 int32[] pwmRef
 int32[] position
 int32[] velocity

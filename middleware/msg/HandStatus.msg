@@ -1,3 +1,4 @@
+uint8 id
 # six current measurements per arm board
 uint16[] current
 float32[] gyro_x
