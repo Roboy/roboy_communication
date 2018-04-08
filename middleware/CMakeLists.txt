@@ -25,6 +25,7 @@ add_message_files(
         DarkRoomOOTX.msg
         DarkRoomSensor.msg
         DarkRoomStatistics.msg
+        FingerCommand.msg
 		HandStatus.msg
         HandCommand.msg
         JointAngle.msg
