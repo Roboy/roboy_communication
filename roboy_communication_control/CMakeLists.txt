@@ -49,7 +49,7 @@ add_action_files(
         FILES
         PerformMovement.action
         PerformMovements.action
-        StartRecordTrajectory.action
+        StartRecordTrajectoryq.action
         StopRecordTrajectory.action
 )
 
