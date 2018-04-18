@@ -29,6 +29,7 @@ add_message_files(
         DebugNotification.msg
         InfoNotification.msg
         StartRecordTrajectory.msg
+	Strings.msg
 )
 
 add_service_files(
