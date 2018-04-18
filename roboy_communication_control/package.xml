@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>roboy_communication_control</name>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
   <description>Custom Messages and Services for control</description>
   <maintainer email="unicorn@roboy.org">John Doe</maintainer>
   <license>BSD-3</license>
