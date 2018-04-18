@@ -37,9 +37,6 @@ add_service_files(
         FILES
         ListItems.srv
         MoveYaw.srv
-        PerformActions.srv
-        PerformBehavior.srv
-        PerformMovement.srv  
         ShowEmotion.srv
 )
 
@@ -49,8 +46,6 @@ add_action_files(
         FILES
         PerformMovement.action
         PerformMovements.action
-        StartRecordTrajectoryq.action
-        StopRecordTrajectory.action
 )
 
 generate_messages(
