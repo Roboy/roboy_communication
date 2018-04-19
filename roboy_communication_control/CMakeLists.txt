@@ -17,18 +17,18 @@ include_directories(
 )
 
 add_message_files(
-        DIRECTORY
-        msg
-        FILES
-        Behavior.msg
+	DIRECTORY
+	msg
+	FILES
+	Behavior.msg
 	ControlLeds.msg
-        Emotion.msg
-        DangerNotification.msg
-        ErrorNotification.msg
-        WarningNotification.msg
-        DebugNotification.msg
-        InfoNotification.msg
-        StartRecordTrajectory.msg
+	Emotion.msg
+	DangerNotification.msg
+	ErrorNotification.msg
+	WarningNotification.msg
+	DebugNotification.msg
+	InfoNotification.msg
+	StartRecordTrajectory.msg
 	Strings.msg
         # PerformMovementActionFeedback.msg
         # PerformMovementActionGoal.msg

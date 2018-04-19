@@ -62,6 +62,7 @@ add_service_files(
         Record.srv
 		SetInt16.srv
         SetTrajectory.srv
+        SystemCheck.srv
         EmergencyStop.srv
 )
 
