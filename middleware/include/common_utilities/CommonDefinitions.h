@@ -39,24 +39,28 @@
 #include <map>
 #include <vector>
 
-enum ControlMode {UNDEFINED_CONTROL = 0, POSITION_CONTROL, VELOCITY_CONTROL, FORCE_CONTROL, MUSCLE_ACTIVITY_CONTROL};
+enum ControlMode {
+    UNDEFINED_CONTROL = 0, POSITION_CONTROL, VELOCITY_CONTROL, FORCE_CONTROL, MUSCLE_ACTIVITY_CONTROL
+};
 
-static const char * controlModeStrings[] = { "undefined", "position", "velocity", "force", "muscle_activity" };
+static const char *controlModeStrings[] = {"undefined", "position", "velocity", "force", "muscle_activity"};
 
-static const char * getControlModeString(ControlMode mode) {
-	return controlModeStrings[mode];
+static const char *getControlModeString(ControlMode mode) {
+    return controlModeStrings[mode];
 }
 
-enum ControllerState {  UNDEFINED = 0,
-                        INITIALIZED,
-                        PREPROCESS_TRAJECTORY,
-                        TRAJECTORY_READY,
-                        TRAJECTORY_FAILED,
-                        TRAJECTORY_PLAYING,
-                        TRAJECTORY_PAUSED,
-                        TRAJECTORY_DONE,
-                        INITIALIZE_ERROR,
-                        STOPPED};
+enum ControllerState {
+    UNDEFINED = 0,
+    INITIALIZED,
+    PREPROCESS_TRAJECTORY,
+    TRAJECTORY_READY,
+    TRAJECTORY_FAILED,
+    TRAJECTORY_PLAYING,
+    TRAJECTORY_PAUSED,
+    TRAJECTORY_DONE,
+    INITIALIZE_ERROR,
+    STOPPED
+};
 
 
 
@@ -68,53 +72,55 @@ enum ControllerState {  UNDEFINED = 0,
 //    return statusStrings[enumVal];
 //}
 
-enum SteeringCommand {STOP_TRAJECTORY=0,PLAY_TRAJECTORY,PAUSE_TRAJECTORY,REWIND_TRAJECTORY};
+enum SteeringCommand {
+    STOP_TRAJECTORY = 0, PLAY_TRAJECTORY, PAUSE_TRAJECTORY, REWIND_TRAJECTORY
+};
 
-enum LEG{
+enum LEG {
     LEFT = 0,
     RIGHT,
     NONE
 };
 
-enum LEG_STATE{
+enum LEG_STATE {
     Stance = 0,
     Lift_off,
     Swing,
     Stance_Preparation
 };
 
-enum VISUALIZATION{
-	Tendon,
-	COM,
-	EstimatedCOM,
-	Forces,
-	MomentArm,
-	Mesh,
-	StateMachineParameters,
-	ForceTorqueSensors,
-	IMUs,
-	CollisionModel,
-	InteractiveMarkers,
-	IMUFiltering
+enum VISUALIZATION {
+    Tendon,
+    COM,
+    EstimatedCOM,
+    Forces,
+    MomentArm,
+    Mesh,
+    StateMachineParameters,
+    ForceTorqueSensors,
+    IMUs,
+    CollisionModel,
+    InteractiveMarkers,
+    IMUFiltering
 };
 
-enum ABORTION{
+enum ABORTION {
     COMheight,
     headingDeviation,
     selfCollision
 };
 
-enum SIMULATIONCONTROL{
-	Play,
-	Pause,
-	Rewind,
-	Slow_Motion,
-	UpdateInteractiveMarker,
-	StartRecording,
-	StopRecording
+enum SIMULATIONCONTROL {
+    Play,
+    Pause,
+    Rewind,
+    Slow_Motion,
+    UpdateInteractiveMarker,
+    StartRecording,
+    StopRecording
 };
 
-enum PLANE{
+enum PLANE {
     TRAVERSAL,
     SAGITTAL,
     CORONAL
@@ -127,29 +133,28 @@ enum PLANE{
 
 #define NUMBER_OF_CONTROL_MODES 4
 
-enum CONTROLMODES{
-	POSITION = 0,
-	VELOCITY,
-	DISPLACEMENT,
-	FORCE
+enum CONTROLMODES {
+    POSITION = 0,
+    VELOCITY,
+    DISPLACEMENT,
+    FORCE
 };
 
-typedef struct
-{
-	uint8_t control_mode;
-	int32_t outputPosMax = 4000; /*!< maximum control output in the positive direction in counts, max 4000*/
-	int32_t outputNegMax = -4000; /*!< maximum control output in the negative direction in counts, max -4000*/
-	int32_t spPosMax;/*<!Positive limit for the set point.*/
-	int32_t spNegMax;/*<!Negative limit for the set point.*/
-	int16_t Kp = 100;/*!<Gain of the proportional component*/
-	int16_t Ki = 0;/*!<Gain of the integral component*/
-	int16_t Kd = 0;/*!<Gain of the differential component*/
-	int16_t forwardGain = 0; /*!<Gain of  the feed-forward term*/
-	int16_t deadBand = 0;/*!<Optional deadband threshold for the control response*/
-	int16_t IntegralPosMax; /*!<Integral positive component maximum*/
-	int16_t IntegralNegMax; /*!<Integral negative component maximum*/
-	float radPerEncoderCount = {2 * 3.14159265359f / (2000.0f * 53.0f)};
-}control_Parameters_t;
+typedef struct {
+    uint8_t control_mode;
+    int32_t outputPosMax = 4000; /*!< maximum control output in the positive direction in counts, max 4000*/
+    int32_t outputNegMax = -4000; /*!< maximum control output in the negative direction in counts, max -4000*/
+    int32_t spPosMax;/*<!Positive limit for the set point.*/
+    int32_t spNegMax;/*<!Negative limit for the set point.*/
+    int16_t Kp = 100;/*!<Gain of the proportional component*/
+    int16_t Ki = 0;/*!<Gain of the integral component*/
+    int16_t Kd = 0;/*!<Gain of the differential component*/
+    int16_t forwardGain = 0; /*!<Gain of  the feed-forward term*/
+    int16_t deadBand = 0;/*!<Optional deadband threshold for the control response*/
+    int16_t IntegralPosMax; /*!<Integral positive component maximum*/
+    int16_t IntegralNegMax; /*!<Integral negative component maximum*/
+    float radPerEncoderCount = {2 * 3.14159265359f / (2000.0f * 53.0f)};
+} control_Parameters_t;
 
 #define NUMBER_OF_MOTORS_PER_FPGA 14
 #define NUMBER_OF_FPGAS 6
@@ -157,36 +162,35 @@ typedef struct
 #define HEAD 0
 #define SPINE_LEFT 1
 #define SPINE_RIGHT 2
-#define LEGS 3
 // the two shoulders have to have these ids, because the right shoulder has mirrored motor units, which results in
 // negative displacement on compression of the spring and needs to be dealt with in fpga PID controllers
-#define SHOULDER_LEFT 4
-#define SHOULDER_RIGHT 5
+#define SHOULDER_LEFT 3
+#define SHOULDER_RIGHT 4
 
-static std::map<int,std::vector<int>> active_motors = {{0,{0,1,2,3}},
-									  {1,{0,1,2,7,8,9,10,11,12}},
-									  {2,{0,1,2,7,8,9,10,11,12}},
-									  {3,{0,1,2,3,4,5,6,7,8,9,10,11,12}},
-									  {4,{0,1,2,3,4,5,6,7,8,9,10,11,12}}};
+static std::map<int, std::vector<int>> active_motors = {{0, {0, 1, 2, 3}},
+                                                        {1, {0, 1, 2, 7, 8, 9, 10, 11, 12}},
+                                                        {2, {0, 1, 2, 7, 8, 9, 10, 11, 12}},
+                                                        {3, {0, 1, 2, 3, 4, 5, 6,  7,  8, 9, 10, 11, 12}},
+                                                        {4, {0, 1, 2, 3, 4, 5, 6,  7,  8, 9, 10, 11, 12}}};
 
 typedef struct {
-	uint16_t fw_version;
-	uint32_t ID;
-	float fcal_0_phase = 0.0f;
-	float fcal_1_phase = 0.0f;
-	float fcal_0_tilt = 0.0f;
-	float fcal_1_tilt = 0.0f;
-	uint8_t unlock_count;
-	uint8_t hw_version;
-	float fcal_0_curve = 0.0f;
-	float fcal_1_curve = 0.0f;
-	float accel_dir_x;
-	float accel_dir_y;
-	float accel_dir_z;
-	float fcal_0_gibphase = 0.0f;
-	float fcal_1_gibphase = 0.0f;
-	float fcal_0_gibmag = 0.0f;
-	float fcal_1_gibmag = 0.0f;
-	uint8_t mode;
-	uint8_t faults;
-}OOTXframe;
+    uint16_t fw_version;
+    uint32_t ID;
+    float fcal_0_phase = 0.0f;
+    float fcal_1_phase = 0.0f;
+    float fcal_0_tilt = 0.0f;
+    float fcal_1_tilt = 0.0f;
+    uint8_t unlock_count;
+    uint8_t hw_version;
+    float fcal_0_curve = 0.0f;
+    float fcal_1_curve = 0.0f;
+    float accel_dir_x;
+    float accel_dir_y;
+    float accel_dir_z;
+    float fcal_0_gibphase = 0.0f;
+    float fcal_1_gibphase = 0.0f;
+    float fcal_0_gibmag = 0.0f;
+    float fcal_1_gibmag = 0.0f;
+    uint8_t mode;
+    uint8_t faults;
+} OOTXframe;
