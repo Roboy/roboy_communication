@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project( roboy_communication_control )
+project( roboy_communication_actions )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
@@ -17,36 +17,23 @@ include_directories(
 )
 
 add_message_files(
-	DIRECTORY
-	msg
-	FILES
-	Behavior.msg
-	ControlLeds.msg
-	Emotion.msg
-	DangerNotification.msg
-	ErrorNotification.msg
-	WarningNotification.msg
-	DebugNotification.msg
-	InfoNotification.msg
-	StartRecordTrajectory.msg
-	Strings.msg
-)
-
-add_service_files(
         DIRECTORY
-        srv
+        msg
         FILES
-        ListItems.srv
-        MoveYaw.srv
-        ShowEmotion.srv
-)
-
-add_action_files(
-        DIRECTORY
-        action
-        FILES
-        PerformMovement.action
-        PerformMovements.action
+        PerformMovementActionFeedback.msg
+        PerformMovementActionGoal.msg
+        PerformMovementAction.msg
+        PerformMovementActionResult.msg
+        PerformMovementFeedback.msg
+        PerformMovementGoal.msg
+        PerformMovementResult.msg
+        PerformMovementsActionFeedback.msg
+        PerformMovementsActionGoal.msg
+        PerformMovementsAction.msg
+        PerformMovementsActionResult.msg
+        PerformMovementsFeedback.msg
+        PerformMovementsGoal.msg
+        PerformMovementsResult.msg
 )
 
 generate_messages(
