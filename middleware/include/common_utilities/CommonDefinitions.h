@@ -167,11 +167,13 @@ typedef struct {
 #define SHOULDER_LEFT 3
 #define SHOULDER_RIGHT 4
 
-static std::map<int, std::vector<int>> active_motors = {{0, {0, 1, 2, 3}},
-                                                        {1, {0, 1, 2, 7, 8, 9, 10, 11, 12}},
-                                                        {2, {0, 1, 2, 7, 8, 9, 10, 11, 12}},
-                                                        {3, {0, 1, 2, 3, 4, 5, 6,  7,  8, 9, 10, 11, 12}},
-                                                        {4, {0, 1, 2, 3, 4, 5, 6,  7,  8, 9, 10, 11, 12}}};
+static std::map<int, std::vector<int>> active_motors = {{HEAD, {0, 1, 2, 3}},
+                                                        {SPINE_LEFT, {0, 1, 2, 7, 8, 9, 10, 11, 12}},
+                                                        {SPINE_RIGHT, {0, 1, 2, 7, 8, 9, 10, 11, 12}},
+                                                        {SHOULDER_LEFT, {0, 1, 2, 3, 4, 5, 6,  7,  8, 9, 10, 11, 12}},
+                                                        {SHOULDER_RIGHT, {0, 1, 2, 3, 4, 5, 6,  7,  8, 9, 10, 11, 12}}};
+
+static const std::vector<std::string> bodyParts = {"head",  "spine_left",  "spine_right", "shoulder_left", "shoulder_right"};
 
 typedef struct {
     uint16_t fw_version;
