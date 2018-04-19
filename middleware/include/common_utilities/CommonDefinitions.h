@@ -36,6 +36,8 @@
 #pragma once
 
 #include <stdint.h>
+#include <map>
+#include <vector>
 
 enum ControlMode {UNDEFINED_CONTROL = 0, POSITION_CONTROL, VELOCITY_CONTROL, FORCE_CONTROL, MUSCLE_ACTIVITY_CONTROL};
 
@@ -151,6 +153,21 @@ typedef struct
 
 #define NUMBER_OF_MOTORS_PER_FPGA 14
 #define NUMBER_OF_FPGAS 6
+
+#define HEAD 0
+#define SPINE_LEFT 1
+#define SPINE_RIGHT 2
+#define LEGS 3
+// the two shoulders have to have these ids, because the right shoulder has mirrored motor units, which results in
+// negative displacement on compression of the spring and needs to be dealt with in fpga PID controllers
+#define SHOULDER_LEFT 4
+#define SHOULDER_RIGHT 5
+
+static std::map<int,std::vector<int>> active_motors = {{0,{0,1,2,3}},
+									  {1,{0,1,2,7,8,9,10,11,12}},
+									  {2,{0,1,2,7,8,9,10,11,12}},
+									  {3,{0,1,2,3,4,5,6,7,8,9,10,11,12}},
+									  {4,{0,1,2,3,4,5,6,7,8,9,10,11,12}}};
 
 typedef struct {
 	uint16_t fw_version;

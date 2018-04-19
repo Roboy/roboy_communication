@@ -17,18 +17,18 @@ include_directories(
 )
 
 add_message_files(
-        DIRECTORY
-        msg
-        FILES
-        Behavior.msg
+	DIRECTORY
+	msg
+	FILES
+	Behavior.msg
 	ControlLeds.msg
-        Emotion.msg
-        DangerNotification.msg
-        ErrorNotification.msg
-        WarningNotification.msg
-        DebugNotification.msg
-        InfoNotification.msg
-        StartRecordTrajectory.msg
+	Emotion.msg
+	DangerNotification.msg
+	ErrorNotification.msg
+	WarningNotification.msg
+	DebugNotification.msg
+	InfoNotification.msg
+	StartRecordTrajectory.msg
 )
 
 add_service_files(
@@ -49,8 +49,6 @@ add_action_files(
         FILES
         PerformMovement.action
         PerformMovements.action
-        StartRecordTrajectoryq.action
-        StopRecordTrajectory.action
 )
 
 generate_messages(
