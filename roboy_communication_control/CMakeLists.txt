@@ -30,6 +30,20 @@ add_message_files(
         InfoNotification.msg
         StartRecordTrajectory.msg
 	Strings.msg
+        # PerformMovementActionFeedback.msg
+        # PerformMovementActionGoal.msg
+        # PerformMovementAction.msg
+        # PerformMovementActionResult.msg
+        # PerformMovementFeedback.msg
+        # PerformMovementGoal.msg
+        # PerformMovementResult.msg
+        # PerformMovementsActionFeedback.msg
+        # PerformMovementsActionGoal.msg
+        # PerformMovementsAction.msg
+        # PerformMovementsActionResult.msg
+        # PerformMovementsFeedback.msg
+        # PerformMovementsGoal.msg
+        # PerformMovementsResult.msg
 )
 
 add_service_files(
