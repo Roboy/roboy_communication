@@ -1,4 +1,5 @@
 uint8 id
+bool power_sense
 int32[] pwmRef
 int32[] position
 int32[] velocity
