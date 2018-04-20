@@ -52,6 +52,7 @@ add_service_files(
         FILES
         ListItems.srv
         MoveYaw.srv
+		SetMode.srv
         ShowEmotion.srv
 )
 
