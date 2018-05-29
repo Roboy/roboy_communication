@@ -24,6 +24,7 @@ add_message_files(
 
 add_service_files(
     FILES
+    	ApplyFilter.srv
 	AssertProperty.srv
 	CallQuery.srv
 	CheckProperty.srv
