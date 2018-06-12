@@ -154,6 +154,7 @@ typedef struct {
     int16_t IntegralPosMax; /*!<Integral positive component maximum*/
     int16_t IntegralNegMax; /*!<Integral negative component maximum*/
     float radPerEncoderCount = {2 * 3.14159265359f / (2000.0f * 53.0f)};
+    int32_t outputDivider = 100; /*! This divides the output of the PID controllers */
 } control_Parameters_t;
 
 #define NUMBER_OF_MOTORS_PER_FPGA 14
