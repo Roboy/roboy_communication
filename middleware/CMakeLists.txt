@@ -29,6 +29,7 @@ add_message_files(
         FingerCommand.msg
 		HandStatus.msg
         HandCommand.msg
+		HandSimCommand.msg
         JointAngle.msg
         JointCommand.msg
         JointStatus.msg
