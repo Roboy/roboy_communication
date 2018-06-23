@@ -157,8 +157,8 @@ typedef struct {
     int32_t outputDivider = 100; /*! This divides the output of the PID controllers */
 } control_Parameters_t;
 
-#define NUMBER_OF_MOTORS_PER_FPGA 14
-#define NUMBER_OF_FPGAS 6
+#define NUMBER_OF_MOTORS_PER_FPGA 13
+#define NUMBER_OF_FPGAS 5
 
 #define HEAD 0
 #define SPINE_LEFT 1
