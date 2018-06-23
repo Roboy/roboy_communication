@@ -1,0 +1,2 @@
+
+roboy_communication_middleware/FingerCommand[] fingerMsg
