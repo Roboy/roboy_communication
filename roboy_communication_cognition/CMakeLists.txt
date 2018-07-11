@@ -20,7 +20,7 @@ add_message_files(
 	FaceCoordinates.msg
 	NewFacialFeatures.msg
 	SpeechSynthesis.msg
-	PersonDetection.msg
+	ObjectDetection.msg
 )
 
 add_service_files(

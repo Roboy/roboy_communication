@@ -1,0 +1,9 @@
+int person_num
+bool person_listening
+bool phone_detected
+bool cat_detected
+bool dog_deteted
+bool chair_detected
+bool bottle_detected
+bool bike_detected
+bool monitor_detected
