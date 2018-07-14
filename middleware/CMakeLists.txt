@@ -59,6 +59,7 @@ add_service_files(
         DanceTrajectory.srv
         Initialize.srv
         InverseKinematics.srv
+		Key.srv
 		MotorCalibrationService.srv
         MotorConfigService.srv
         Record.srv
