@@ -57,6 +57,7 @@ add_service_files(
         FILES
 		ControlMode.srv
         DanceTrajectory.srv
+		ForwardKinematics.srv
         Initialize.srv
         InverseKinematics.srv
 		Key.srv

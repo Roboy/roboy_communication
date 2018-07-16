@@ -1,0 +1,4 @@
+string planning_group
+float64[] angles
+---
+geometry_msgs/Vector3 pos

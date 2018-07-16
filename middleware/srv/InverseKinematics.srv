@@ -1,20 +1,6 @@
+uint8 type
 # this is the target position you want new joint angles for
 geometry_msgs/Vector3 targetPosition
-# position ankle_left
-geometry_msgs/Vector3 ankle_left
-# target position ankle_right sensor
-geometry_msgs/Vector3 ankle_right_sensor
-
-# this is the lighthouse sensor id
-int32 lighthouse_sensor_id
-# these are the initial joint angles in degrees
-float64[] initial_angles
-# visualize result
-bool inspect
-bool visualize_initial
-bool visualize_result
 ---
 # these are the resulting joint angles from inverse kinematics in degrees
 float64[] angles
-# these are the position results for all lighthouse sensors
-geometry_msgs/Vector3[] resultPosition
