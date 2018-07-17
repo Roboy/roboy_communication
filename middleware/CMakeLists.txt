@@ -57,10 +57,10 @@ add_service_files(
         FILES
 		ControlMode.srv
         DanceTrajectory.srv
+		FrameIK.srv
 		ForwardKinematics.srv
         Initialize.srv
         InverseKinematics.srv
-		Key.srv
 		MotorCalibrationService.srv
         MotorConfigService.srv
         Record.srv

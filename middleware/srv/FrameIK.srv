@@ -1,0 +1,4 @@
+uint8 ik_type
+string frame_id
+float64[] offset
+---
