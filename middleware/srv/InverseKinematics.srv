@@ -1,3 +1,4 @@
+# available types 0: Setpoint IK 1: Trajectory IK
 uint8 type
 # this is the target position you want new joint angles for
 geometry_msgs/Vector3 targetPosition
@@ -5,3 +6,5 @@ float64[] targetRotation
 ---
 # these are the resulting joint angles from inverse kinematics in degrees
 float64[] angles
+# or the trajectory
+moveit_msgs/RobotTrajectory trajectory
