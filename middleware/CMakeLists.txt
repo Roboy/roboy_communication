@@ -69,6 +69,7 @@ add_service_files(
 		SetInt16.srv
         SetTrajectory.srv
         SystemCheck.srv
+        TorqueControl.srv
         EmergencyStop.srv
 )
 
