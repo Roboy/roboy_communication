@@ -131,6 +131,9 @@ enum PLANE {
 // Converts radians to degrees.
 #define radiansToDegrees(angleRadians) (angleRadians * 180.0f / (float)M_PI)
 
+#define myoBrickMeterPerEncoderTick(encoderTicks) (encoderTicks*(2.0*M_PI*0.0045)/(2096.0*53.0))
+#define myoBrickEncoderTicksPerMeter(meter) (meter*(2096.0*53.0)/(2.0*M_PI*0.0045))
+
 #define NUMBER_OF_CONTROL_MODES 4
 
 enum CONTROLMODES {
@@ -158,6 +161,8 @@ typedef struct {
 } control_Parameters_t;
 
 #define NUMBER_OF_MOTORS_PER_FPGA 13
+#define NUMBER_OF_MOTORS_MYOCONTROL_0 9
+#define NUMBER_OF_MOTORS_MYOCONTROL_1 4
 #define NUMBER_OF_FPGAS 5
 
 #define HEAD 0
