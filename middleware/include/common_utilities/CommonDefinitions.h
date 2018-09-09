@@ -131,8 +131,8 @@ enum PLANE {
 // Converts radians to degrees.
 #define radiansToDegrees(angleRadians) (angleRadians * 180.0f / (float)M_PI)
 
-#define myoBrickMeterPerEncoderTick(encoderTicks) (encoderTicks*(2.0*M_PI*0.0045)/(2096.0*53.0))
-#define myoBrickEncoderTicksPerMeter(meter) (meter*(2096.0*53.0)/(2.0*M_PI*0.0045))
+#define myoMuscleMeterPerEncoderTick(encoderTicks) (encoderTicks*(2.0*M_PI*0.0045)/(2096.0*53.0))
+#define myoMuscleEncoderTicksPerMeter(meter) (meter*(2096.0*53.0)/(2.0*M_PI*0.0045))
 
 #define NUMBER_OF_CONTROL_MODES 4
 
