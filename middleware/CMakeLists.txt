@@ -63,6 +63,7 @@ add_service_files(
 		ForwardKinematics.srv
         Initialize.srv
         InverseKinematics.srv
+        JointController.srv
 		MotorCalibrationService.srv
         MotorConfigService.srv
         Record.srv

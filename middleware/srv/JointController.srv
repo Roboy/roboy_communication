@@ -1,0 +1,9 @@
+int32 Kp_joint
+int32 Kd_joint
+int32 Kp_agonist
+int32 Kd_agonist
+int32 Kp_antagonist
+int32 Kd_antagonist
+int32 deadband
+int32 pretension
+---
