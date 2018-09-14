@@ -160,7 +160,7 @@ typedef struct {
     int32_t outputDivider = 100; /*! This divides the output of the PID controllers */
 } control_Parameters_t;
 
-#define NUMBER_OF_MOTORS_PER_FPGA 15
+#define NUMBER_OF_MOTORS_PER_FPGA 16
 #define NUMBER_OF_MOTORS_MYOCONTROL_0 9
 #define NUMBER_OF_MOTORS_MYOCONTROL_1 4
 #define NUMBER_OF_MOTORS_MYOCONTROL_2 3
