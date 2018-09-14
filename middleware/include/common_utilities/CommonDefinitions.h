@@ -160,9 +160,10 @@ typedef struct {
     int32_t outputDivider = 100; /*! This divides the output of the PID controllers */
 } control_Parameters_t;
 
-#define NUMBER_OF_MOTORS_PER_FPGA 13
+#define NUMBER_OF_MOTORS_PER_FPGA 15
 #define NUMBER_OF_MOTORS_MYOCONTROL_0 9
 #define NUMBER_OF_MOTORS_MYOCONTROL_1 4
+#define NUMBER_OF_MOTORS_MYOCONTROL_2 3
 #define NUMBER_OF_FPGAS 5
 
 #define HEAD 0
@@ -173,15 +174,15 @@ typedef struct {
 #define SHOULDER_LEFT 3
 #define SHOULDER_RIGHT 4
 
-static std::map<int, std::vector<int>> active_motors = {{HEAD, {0, 1, 2, 3}},
-                                                        {SPINE_LEFT, {0, 1, 2}},
-                                                        {SPINE_RIGHT, {0, 1, 2}},
+static std::map<int, std::vector<int>> active_motors = {{HEAD, {9, 10, 11 ,13, 14, 15}},
+                                                        {SPINE_LEFT, {9, 10, 11}},
+                                                        {SPINE_RIGHT, {9, 10, 11}},
                                                         {SHOULDER_LEFT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}},
                                                         {SHOULDER_RIGHT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}}};
 
-static std::map<int, std::vector<uint8_t>> myo_bricks = {{HEAD, {0, 1, 2, 3}},
-                                                        {SPINE_LEFT, {0, 1, 2}},
-                                                        {SPINE_RIGHT, {0, 1, 2}},
+static std::map<int, std::vector<uint8_t>> myo_bricks = {{HEAD, {9, 10, 11 ,13, 14, 15}},
+                                                        {SPINE_LEFT, {9, 10, 11}},
+                                                        {SPINE_RIGHT, {9, 10, 11}},
                                                         {SHOULDER_LEFT, {11, 12}},
                                                         {SHOULDER_RIGHT, {11, 12}}};
 
