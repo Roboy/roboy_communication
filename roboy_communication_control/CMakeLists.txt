@@ -9,6 +9,8 @@ find_package(catkin REQUIRED cmake_modules COMPONENTS
         std_srvs
         message_generation
         actionlib_msgs
+		moveit_msgs
+		geometry_msgs
 )
 
 include_directories(    
@@ -60,13 +62,15 @@ add_action_files(
         DIRECTORY
         action
         FILES
+        LookAt.action
+        MoveEndEffector.action
         PerformMovement.action
         PerformMovements.action
 )
 
 generate_messages(
-        DEPENDENCIES std_msgs std_srvs actionlib_msgs
+        DEPENDENCIES std_msgs std_srvs actionlib_msgs moveit_msgs
 )
 
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation actionlib_msgs
+catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation actionlib_msgs moveit_msgs
                 INCLUDE_DIRS)

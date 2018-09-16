@@ -1,0 +1,14 @@
+#goal definition
+string endEffector
+int32 yaw_joint_index
+int32 pitch_joint_index
+int32 type # 0: point in world frame 1: target frame relative to root_frame
+geometry_msgs/Vector3 point
+string root_frame
+string target_frame
+bool sendToRealHardware
+---
+#result definition
+---
+#feedback
+float32 error

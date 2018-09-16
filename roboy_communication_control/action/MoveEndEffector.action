@@ -1,0 +1,12 @@
+#goal definition
+string endEffector
+int32 type # 0: pose in world frame 1: pose relative to target_frame
+geometry_msgs/Pose pose
+string target_frame
+bool sendToRealHardware
+---
+#result definition
+float32[] q
+---
+#feedback
+float32 error
