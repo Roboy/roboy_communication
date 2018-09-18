@@ -18,6 +18,7 @@ add_message_files(
         msg
         FILES
 		ADCvalue.msg
+		ArmStatus.msg
         ArucoPose.msg
         ControllerRequest.msg
         ControllerState.msg
@@ -28,7 +29,6 @@ add_message_files(
         DarkRoomStatistics.msg
         DarkRoomStatus.msg
         FingerCommand.msg
-		HandStatus.msg
         HandCommand.msg
 		HandSimCommand.msg
         JointAngle.msg

@@ -9,5 +9,9 @@ float32[] acc_y
 float32[] acc_z
 float32 elbow_joint_angle
 float32 elbow_joint_angle_setpoint
-int32 agonist_setpoint
-int32 antagonist_setpoint
+int32 elbow_agonist_setpoint
+int32 elbow_antagonist_setpoint
+float32 wrist_joint_angle
+float32 wrist_joint_angle_setpoint
+int32 wrist_agonist_setpoint
+int32 wrist_antagonist_setpoint
