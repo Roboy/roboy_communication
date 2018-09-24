@@ -179,14 +179,14 @@ typedef struct {
 #define SHOULDER_RIGHT 4
 
 static std::map<int, std::vector<int>> active_motors = {{HEAD, {9, 10, 11 ,13, 14, 15}},
-                                                        {SPINE_LEFT, {9, 10, 11}},
-                                                        {SPINE_RIGHT, {9, 10, 11}},
+                                                        {SPINE_LEFT, {0, 1, 2, 3, 4, 5, 10, 11}},
+                                                        {SPINE_RIGHT, {0, 1, 2, 3, 4, 5, 9, 10}},
                                                         {SHOULDER_LEFT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}},
                                                         {SHOULDER_RIGHT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}}};
 
 static std::map<int, std::vector<uint8_t>> myo_bricks = {{HEAD, {9, 10, 11 ,13, 14, 15}},
-                                                        {SPINE_LEFT, {9, 10, 11}},
-                                                        {SPINE_RIGHT, {9, 10, 11}},
+                                                        {SPINE_LEFT, {10, 11}},
+                                                        {SPINE_RIGHT, {9, 10}},
                                                         {SHOULDER_LEFT, {11, 12}},
                                                         {SHOULDER_RIGHT, {11, 12}}};
 
