@@ -2,7 +2,10 @@
 string endEffector
 int32 yaw_joint_index
 int32 pitch_joint_index
-int32 type # 0: point in world frame 1: target frame relative to root_frame
+# 0: point in world frame
+# 1: target frame relative to root_frame
+# 2: target frame relative to root_frame single shot
+int32 type
 geometry_msgs/Vector3 point
 string root_frame
 string target_frame
