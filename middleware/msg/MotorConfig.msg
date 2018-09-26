@@ -13,3 +13,4 @@ uint16[] deadBand
 int32[] IntegralPosMax
 int32[] IntegralNegMax
 int32[] outputDivider
+int32[] setpoint
