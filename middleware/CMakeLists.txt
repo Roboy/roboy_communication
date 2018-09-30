@@ -59,6 +59,7 @@ add_service_files(
         FILES
 		ControlMode.srv
         DanceTrajectory.srv
+		EmergencyStop.srv
 		FrameIK.srv
 		ForwardKinematics.srv
         Initialize.srv
@@ -71,7 +72,7 @@ add_service_files(
         SetTrajectory.srv
         SystemCheck.srv
         TorqueControl.srv
-        EmergencyStop.srv
+		XL320.srv
 )
 
 generate_messages(
