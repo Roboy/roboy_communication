@@ -49,7 +49,6 @@ add_message_files(
         RoboyState.msg
         Steer.msg
         Status.msg
-        Tendon.msg
         Trajectory.msg
 )
 
