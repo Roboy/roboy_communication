@@ -1,3 +1,3 @@
 uint8 id
-uint8[] motors
+uint16[] motors
 float32[] setPoints
