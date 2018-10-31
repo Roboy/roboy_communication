@@ -20,7 +20,7 @@ add_message_files(
         BodyPart.msg
         COM.msg
         ControllerParameters.msg
-		ControllerState.msg
+		ControllerType.msg
         ExternalForce.msg
         ForceTorque.msg
         IMU.msg
