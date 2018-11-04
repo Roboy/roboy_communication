@@ -26,6 +26,7 @@ add_message_files(
         IMU.msg
         Input.msg
         Joint.msg
+        JointState.msg
         LegState.msg
 	Model.msg
         MotorControl.msg
