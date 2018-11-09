@@ -20,6 +20,7 @@ add_message_files(
 	FaceCoordinates.msg
 	NewFacialFeatures.msg
 	SpeechSynthesis.msg
+	AudioLocation.msg
 )
 
 add_service_files(
