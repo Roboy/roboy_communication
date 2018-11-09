@@ -7,6 +7,7 @@ find_package(catkin REQUIRED cmake_modules COMPONENTS
         roscpp
         std_msgs
         geometry_msgs
+		moveit_msgs
         std_srvs
         message_generation
         )
@@ -17,6 +18,7 @@ add_message_files(
         msg
         FILES
 		ADCvalue.msg
+		ArmStatus.msg
         ArucoPose.msg
         ControllerRequest.msg
         ControllerState.msg
@@ -27,8 +29,8 @@ add_message_files(
         DarkRoomStatistics.msg
         DarkRoomStatus.msg
         FingerCommand.msg
-		HandStatus.msg
         HandCommand.msg
+		HandSimCommand.msg
         JointAngle.msg
         JointCommand.msg
         JointStatus.msg
@@ -56,20 +58,25 @@ add_service_files(
         FILES
 		ControlMode.srv
         DanceTrajectory.srv
+		EmergencyStop.srv
+		FrameIK.srv
+		ForwardKinematics.srv
         Initialize.srv
         InverseKinematics.srv
+        JointController.srv
 		MotorCalibrationService.srv
         MotorConfigService.srv
         Record.srv
 		SetInt16.srv
         SetTrajectory.srv
         SystemCheck.srv
-        EmergencyStop.srv
+        TorqueControl.srv
+		XL320.srv
 )
 
 generate_messages(
-        DEPENDENCIES std_msgs geometry_msgs std_srvs
+        DEPENDENCIES std_msgs geometry_msgs std_srvs moveit_msgs
 )
 
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation
+catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation moveit_msgs
                 INCLUDE_DIRS include)

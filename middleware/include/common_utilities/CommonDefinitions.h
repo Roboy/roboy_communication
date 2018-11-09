@@ -131,6 +131,13 @@ enum PLANE {
 // Converts radians to degrees.
 #define radiansToDegrees(angleRadians) (angleRadians * 180.0f / (float)M_PI)
 
+#define myoMuscleMeterPerEncoderTick(encoderTicks) ((encoderTicks)/(2096.0*53.0)*(2.0*M_PI*0.0045))
+#define myoMuscleEncoderTicksPerMeter(meter) ((meter)*(2096.0*53.0)/(2.0*M_PI*0.0045))
+#define myoBrick100NMeterPerEncoderTick(encoderTicks) ((encoderTicks)/(256.0*35.0)*(2.0*M_PI*0.003))
+#define myoBrick100NEncoderTicksPerMeter(meter) ((meter)*(256.0*35.0)/(2.0*M_PI*0.003))
+#define myoBrick300NMeterPerEncoderTick(encoderTicks) ((encoderTicks)/(1024.0*62.0)*(2.0*M_PI*0.003))
+#define myoBrick300NEncoderTicksPerMeter(meter) ((meter)*(1024.0*62.0)/(2.0*M_PI*0.003))
+
 #define NUMBER_OF_CONTROL_MODES 4
 
 enum CONTROLMODES {
@@ -154,10 +161,14 @@ typedef struct {
     int16_t IntegralPosMax; /*!<Integral positive component maximum*/
     int16_t IntegralNegMax; /*!<Integral negative component maximum*/
     float radPerEncoderCount = {2 * 3.14159265359f / (2000.0f * 53.0f)};
+    int32_t outputDivider = 100; /*! This divides the output of the PID controllers */
 } control_Parameters_t;
 
-#define NUMBER_OF_MOTORS_PER_FPGA 14
-#define NUMBER_OF_FPGAS 6
+#define NUMBER_OF_MOTORS_PER_FPGA 16
+#define NUMBER_OF_MOTORS_MYOCONTROL_0 9
+#define NUMBER_OF_MOTORS_MYOCONTROL_1 4
+#define NUMBER_OF_MOTORS_MYOCONTROL_2 3
+#define NUMBER_OF_FPGAS 5
 
 #define HEAD 0
 #define SPINE_LEFT 1
@@ -167,17 +178,37 @@ typedef struct {
 #define SHOULDER_LEFT 3
 #define SHOULDER_RIGHT 4
 
-static std::map<int, std::vector<int>> active_motors = {{HEAD, {0, 1, 2, 3}},
-                                                        {SPINE_LEFT, {0, 1, 2, 8, 9, 10, 11, 12, 13}},
-                                                        {SPINE_RIGHT, {0, 1, 2, 8, 9, 10, 11, 12, 13}},
+static std::map<int, std::vector<int>> active_motors = {{HEAD, {9, 10, 11 ,13, 14, 15}},
+                                                        {SPINE_LEFT, {0, 1, 2, 3, 4, 5, 10, 11}},
+                                                        {SPINE_RIGHT, {0, 1, 2, 3, 4, 5, 9, 10}},
                                                         {SHOULDER_LEFT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}},
                                                         {SHOULDER_RIGHT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}}};
 
-static std::map<int, std::vector<uint8_t>> myo_bricks = {{HEAD, {0, 1, 2, 3}},
-                                                        {SPINE_LEFT, {0, 1, 2}},
-                                                        {SPINE_RIGHT, {0, 1, 2}},
+static std::map<int, std::vector<uint8_t>> myo_bricks = {{HEAD, {9, 10, 11 ,13, 14, 15}},
+                                                        {SPINE_LEFT, {10, 11}},
+                                                        {SPINE_RIGHT, {9, 10}},
                                                         {SHOULDER_LEFT, {11, 12}},
                                                         {SHOULDER_RIGHT, {11, 12}}};
+
+typedef enum{
+    MYOMUSCLE500N,
+    MYOBRICK300N,
+    MYOBRICK100N
+}MOTORTYPE;
+
+static std::map<int, std::vector<MOTORTYPE>> motor_type = {{HEAD, {MYOBRICK100N, MYOBRICK300N, MYOBRICK100N ,MYOBRICK100N, MYOBRICK300N, MYOBRICK100N}},
+                                                         {SPINE_LEFT, {MYOBRICK300N, MYOBRICK300N, MYOBRICK300N}},
+                                                         {SPINE_RIGHT, {MYOBRICK300N, MYOBRICK300N, MYOBRICK300N}},
+                                                         {SHOULDER_LEFT, {MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                                 MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                                 MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                                 MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                                 MYOBRICK300N, MYOBRICK300N}},
+                                                         {SHOULDER_RIGHT, {MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                                  MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                                  MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                                  MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                                  MYOBRICK300N, MYOBRICK300N}}};
 
 static const std::vector<std::string> bodyParts = {"head",  "spine_left",  "spine_right", "shoulder_left", "shoulder_right"};
 

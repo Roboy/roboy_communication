@@ -1,0 +1,15 @@
+#goal definition
+string endEffector
+int32 type # 0: pose in world frame 1: pose relative to target_frame 2: joint angle control
+geometry_msgs/Pose pose
+string target_frame
+bool sendToRealHardware
+float32[] q_target
+int32 timeout
+float32 tolerance
+---
+#result definition
+float32[] q
+---
+#feedback
+float32 error

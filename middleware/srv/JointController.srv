@@ -1,0 +1,20 @@
+bool elbow_control_enable
+int32 Kp_elbow_joint
+int32 Kd_elbow_joint
+int32 Kp_elbow_agonist
+int32 Kd_elbow_agonist
+int32 Kp_elbow_antagonist
+int32 Kd_elbow_antagonist
+int32 elbow_deadband
+int32 elbow_pretension
+
+bool wrist_control_enable
+int32 Kp_wrist_joint
+int32 Kd_wrist_joint
+int32 Kp_wrist_agonist
+int32 Kd_wrist_agonist
+int32 Kp_wrist_antagonist
+int32 Kd_wrist_antagonist
+int32 wrist_deadband
+int32 wrist_pretension
+---

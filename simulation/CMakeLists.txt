@@ -20,11 +20,13 @@ add_message_files(
         BodyPart.msg
         COM.msg
         ControllerParameters.msg
+		ControllerType.msg
         ExternalForce.msg
         ForceTorque.msg
         IMU.msg
         Input.msg
         Joint.msg
+        JointState.msg
         LegState.msg
 	Model.msg
         MotorControl.msg
