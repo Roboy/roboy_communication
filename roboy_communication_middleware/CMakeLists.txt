@@ -19,8 +19,6 @@ add_message_files(
         FILES
 		ADCvalue.msg
 		ArmStatus.msg
-        ArucoPose.msg
-        ControllerRequest.msg
         ControllerState.msg
         DanceCommand.msg
         DarkRoom.msg
@@ -30,26 +28,12 @@ add_message_files(
         DarkRoomStatus.msg
         FingerCommand.msg
         HandCommand.msg
-		HandSimCommand.msg
-        JointAngle.msg
-        JointCommand.msg
-        JointStatus.msg
-		LighthousePoseCorrection.msg
+        LighthousePoseCorrection.msg
         MagneticSensor.msg
 		MotorAngle.msg
-        MotorStatus.msg
         MotorCommand.msg
         MotorConfig.msg
-        MotorRecordConfig.msg
-        MotorRecord.msg
-        MotorTrajectoryControl.msg
-        MuscleState.msg
-        Pose.msg
-		Position.msg
-        RoboyState.msg
-        Steer.msg
-        Status.msg
-        Trajectory.msg
+        MotorStatus.msg
 )
 
 add_service_files(
@@ -61,14 +45,11 @@ add_service_files(
 		EmergencyStop.srv
 		FrameIK.srv
 		ForwardKinematics.srv
-        Initialize.srv
         InverseKinematics.srv
         JointController.srv
 		MotorCalibrationService.srv
         MotorConfigService.srv
-        Record.srv
 		SetInt16.srv
-        SetTrajectory.srv
         SystemCheck.srv
         TorqueControl.srv
 		XL320.srv
