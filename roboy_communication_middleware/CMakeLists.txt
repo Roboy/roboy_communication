@@ -19,6 +19,7 @@ add_message_files(
         FILES
 		ADCvalue.msg
 		ArmStatus.msg
+		ArucoPose.msg
         ControllerState.msg
         DanceCommand.msg
         DarkRoom.msg
