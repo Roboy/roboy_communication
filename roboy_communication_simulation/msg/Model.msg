@@ -4,5 +4,5 @@ int32 operation
 int32 type
 #Model(s) or world(s) to be used
 string[] objects
-#Position(s) of object(s) @where they should be inserted
+#position(s) of object(s) @where they should be inserted
 float32[] positions

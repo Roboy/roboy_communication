@@ -9,4 +9,4 @@ float32[] ld
 # number of viapoints
 int32[] number_of_viapoints
 # viapoints of the tendon in global coordinates
-geometry_msgs/Vector3[] viaPoints
+geometry_msgs/Vector3[] viapoints

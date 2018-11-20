@@ -4,7 +4,7 @@ uint8 motor
 # EEPROM Area
 # MODEL_NUMBER             = 0, /**< Model number [R] (default=350) */
 # VERSION                  = 2, /**< Information on the version of firmware [R] */
-# ID                       = 3, /**< ID of Dynamixel [RW] (default=1 ; min=0 ; max=252) */
+# id                       = 3, /**< id of Dynamixel [RW] (default=1 ; min=0 ; max=252) */
 # BAUD_RATE                = 4, /**< Baud Rate of Dynamixel [RW] (default=3 ; min=0 ; max=3) 0: 9600, 1:57600, 2:115200, 3:1Mbps*/
 # RETURN_DELAY_TIME        = 5, /**< Return Delay Time [RW] (default=250 ; min=0 ; max=254) */
 # CW_ANGLE_LIMIT           = 6, /**< clockwise Angle Limit [RW] (default=0 ; min=0 ; max=1023) */

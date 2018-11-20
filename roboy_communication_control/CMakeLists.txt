@@ -1,37 +1,26 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project( roboy_communication_control )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-find_package(catkin REQUIRED cmake_modules COMPONENTS
-        roscpp
-        std_msgs
-        std_srvs
-        message_generation
-        actionlib_msgs
-		moveit_msgs
-		geometry_msgs
-)
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
-include_directories(    
-        # include
-        ${catkin_INCLUDE_DIRS}
-)
 
-add_message_files(
-	DIRECTORY
-	msg
-	FILES
-	Behavior.msg
-	ControlLeds.msg
-	Emotion.msg
-	DangerNotification.msg
-	ErrorNotification.msg
-	WarningNotification.msg
-	DebugNotification.msg
-	InfoNotification.msg
-	StartRecordTrajectory.msg
-	Strings.msg
+set(msg_files
+	"msg/Emotion.msg"
+  "msg/Behavior.msg"
+  "msg/ControlLeds.msg"
+	"msg/DangerNotification.msg"
+	"msg/ErrorNotification.msg"
+	"msg/WarningNotification.msg"
+	"msg/DebugNotification.msg"
+	"msg/InfoNotification.msg"
+	"msg/StartRecordTrajectory.msg"
+	"msg/Strings.msg"
         # PerformMovementActionFeedback.msg
         # PerformMovementActionGoal.msg
         # PerformMovementAction.msg
@@ -48,30 +37,21 @@ add_message_files(
         # PerformMovementsResult.msg
 )
 
-add_service_files(
-        DIRECTORY
-        srv
-        FILES
-        ListItems.srv
-        MoveYaw.srv
-		SetMode.srv
-		SetControllerParameters.srv
-        ShowEmotion.srv
+set(srv_files
+    "srv/ListItems.srv"
+    "srv/MoveYaw.srv"
+		"srv/SetMode.srv"
+		"srv/SetControllerParameters.srv"
+    "srv/ShowEmotion.srv"
 )
 
-add_action_files(
-        DIRECTORY
-        action
-        FILES
-        LookAt.action
-        MoveEndEffector.action
-        PerformMovement.action
-        PerformMovements.action
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  ${srv_files}
+  DEPENDENCIES
+  std_msgs std_srvs
 )
 
-generate_messages(
-        DEPENDENCIES std_msgs std_srvs actionlib_msgs moveit_msgs
-)
 
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation actionlib_msgs moveit_msgs
-                INCLUDE_DIRS)
+ament_export_dependencies(rosidl_default_runtime)
+ament_package()

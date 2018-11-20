@@ -1,64 +1,60 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project( roboy_communication_cognition )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-find_package(catkin REQUIRED cmake_modules COMPONENTS
-        std_msgs
-        message_generation
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(std_msgs REQUIRED)
+
+set(msg_files
+  "msg/AudioData.msg"
+  "msg/AudioInfo.msg"
+  "msg/DirectionVector.msg"
+  "msg/FaceCoordinates.msg"
+  "msg/NewFacialFeatures.msg"
+  "msg/SpeechSynthesis.msg"
+  "msg/AudioLocation.msg"
 )
 
-include_directories(    
-        ${catkin_INCLUDE_DIRS}
-)
-
-add_message_files(
-    FILES
-    AudioData.msg
-	AudioInfo.msg
-	DirectionVector.msg
-	FaceCoordinates.msg
-	NewFacialFeatures.msg
-	SpeechSynthesis.msg
-	AudioLocation.msg
-)
-
-add_service_files(
-    FILES
-    	ApplyFilter.srv
-	AssertProperty.srv
-	CallQuery.srv
-	CheckProperty.srv
-	CheckQuery.srv
-	CreateInstance.srv
-	DataQuery.srv
-	DescribeScene.srv
-	DetectFace.srv
-	DetectIntent.srv
-	EvalSeq2Seq.srv
-	FindInstances.srv
-	FindObject.srv
-	GenerateAnswer.srv
-	GetObject.srv
-	LookAtSpeaker.srv
-	QualityOfTone.srv
-	QualityOfTones.srv
-	RecognizeObject.srv
-	RecognizeSpeech.srv
-	SaveObject.srv
-	ShowInstances.srv
-	ShowProperty.srv
-	ShowPropertyValue.srv
-	Talk.srv
-	TrainSeq2Seq.srv
-	WhichTones.srv
+set(srv_files
+  "srv/ApplyFilter.srv"
+	"srv/AssertProperty.srv"
+	"srv/CallQuery.srv"
+	"srv/CheckProperty.srv"
+	"srv/CheckQuery.srv"
+	"srv/CreateInstance.srv"
+	"srv/DataQuery.srv"
+	"srv/DescribeScene.srv"
+	"srv/DetectFace.srv"
+	"srv/DetectIntent.srv"
+	"srv/EvalSeq2Seq.srv"
+	"srv/FindInstances.srv"
+	"srv/FindObject.srv"
+	"srv/GenerateAnswer.srv"
+	"srv/GetObject.srv"
+	"srv/LookAtSpeaker.srv"
+	"srv/QualityOfTone.srv"
+	"srv/QualityOfTones.srv"
+	"srv/RecognizeObject.srv"
+	"srv/RecognizeSpeech.srv"
+	"srv/SaveObject.srv"
+	"srv/ShowInstances.srv"
+	"srv/ShowProperty.srv"
+	"srv/ShowPropertyValue.srv"
+	"srv/Talk.srv"
+	"srv/TrainSeq2Seq.srv"
+	"srv/WhichTones.srv"
 
 )
 
-generate_messages(
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  ${srv_files}
   DEPENDENCIES
   std_msgs
 )
 
-catkin_package( CATKIN_DEPENDS message_runtime std_msgs
-                INCLUDE_DIRS)
+
+ament_export_dependencies(rosidl_default_runtime)
+ament_package()

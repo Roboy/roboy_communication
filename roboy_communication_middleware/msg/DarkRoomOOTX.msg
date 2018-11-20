@@ -1,6 +1,6 @@
 int32 lighthouse
 uint16 fw_version
-uint32 ID
+uint32 id
 float32 fcal_0_phase
 float32 fcal_1_phase
 float32 fcal_0_tilt

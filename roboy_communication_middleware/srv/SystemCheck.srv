@@ -1,5 +1,5 @@
 # if empty check all motors, otherwise only the requested
-uint8[] motorIDs
+uint8[] motorids
 ---
 # returns which control modes are functional
 bool[] position

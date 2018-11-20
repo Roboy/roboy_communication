@@ -1,8 +1,8 @@
-float32 timeInMilliseconds
-bool majorOnly
+float32 time_in_milliseconds
+bool major_only
 ---
 float32[] quality
 float32[] purity
-float32 directionZ
-float32[] directionY
-bool hitPin
+float32 direction_z
+float32[] direction_y
+bool hit_pin

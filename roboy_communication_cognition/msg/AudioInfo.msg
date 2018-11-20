@@ -1,2 +1,2 @@
 float32[] frequency
-float32[] averagePower
+float32[] average_power

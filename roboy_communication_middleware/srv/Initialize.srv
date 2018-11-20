@@ -1,4 +1,4 @@
-int8[] idList
+int8[] id_list
 uint8[] controlmode
 ---
 ControllerState[] states

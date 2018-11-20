@@ -1,4 +1,4 @@
-float32 timeInMilliseconds
+float32 time_in_milliseconds
 ---
 uint16[] tones
 float32[] timestamps

@@ -1,63 +1,57 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project( roboy_communication_middleware )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-find_package(catkin REQUIRED cmake_modules COMPONENTS
-        roscpp
-        std_msgs
-        geometry_msgs
-		moveit_msgs
-        std_srvs
-        message_generation
-        )
-include_directories(    include
-                        ${catkin_INCLUDE_DIRS})
-add_message_files(
-        DIRECTORY
-        msg
-        FILES
-		ADCvalue.msg
-		ArmStatus.msg
-        ControllerState.msg
-        DanceCommand.msg
-        DarkRoom.msg
-        DarkRoomOOTX.msg
-        DarkRoomSensor.msg
-        DarkRoomStatistics.msg
-        DarkRoomStatus.msg
-        FingerCommand.msg
-        HandCommand.msg
-        LighthousePoseCorrection.msg
-        MagneticSensor.msg
-		MotorAngle.msg
-        MotorCommand.msg
-        MotorConfig.msg
-        MotorStatus.msg
+
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
+set(msg_files
+		"msg/ADCvalue.msg"
+		"msg/ArmStatus.msg"
+    "msg/ControllerState.msg"
+    "msg/DanceCommand.msg"
+    "msg/DarkRoom.msg"
+    "msg/DarkRoomOOTX.msg"
+    "msg/DarkRoomSensor.msg"
+    "msg/DarkRoomStatistics.msg"
+    "msg/DarkRoomStatus.msg"
+    "msg/FingerCommand.msg"
+    "msg/HandCommand.msg"
+    "msg/LighthousePoseCorrection.msg"
+    "msg/MagneticSensor.msg"
+		"msg/MotorAngle.msg"
+    "msg/MotorCommand.msg"
+    "msg/MotorConfig.msg"
+    "msg/MotorStatus.msg"
 )
 
-add_service_files(
-        DIRECTORY
-        srv
-        FILES
-		ControlMode.srv
-        DanceTrajectory.srv
-		EmergencyStop.srv
-		FrameIK.srv
-		ForwardKinematics.srv
-        InverseKinematics.srv
-        JointController.srv
-		MotorCalibrationService.srv
-        MotorConfigService.srv
-		SetInt16.srv
-        SystemCheck.srv
-        TorqueControl.srv
-		XL320.srv
+set(srv_files
+		"srv/ControlMode.srv"
+    "srv/DanceTrajectory.srv"
+		"srv/EmergencyStop.srv"
+		"srv/FrameIK.srv"
+		"srv/ForwardKinematics.srv"
+    "srv/InverseKinematics.srv"
+    "srv/JointController.srv"
+		"srv/MotorCalibrationService.srv"
+    "srv/MotorConfigService.srv"
+		"srv/SetInt16.srv"
+    "srv/SystemCheck.srv"
+    "srv/TorqueControl.srv"
+		"srv/XL320.srv"
 )
 
-generate_messages(
-        DEPENDENCIES std_msgs geometry_msgs std_srvs moveit_msgs
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  ${srv_files}
+  DEPENDENCIES
+  std_msgs geometry_msgs
 )
 
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation moveit_msgs
-                INCLUDE_DIRS include)
+
+ament_export_dependencies(rosidl_default_runtime)
+ament_package()

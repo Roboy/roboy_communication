@@ -1,2 +1,2 @@
-int32 sensorID
+int32 sensor_id
 geometry_msgs/Vector3 pos

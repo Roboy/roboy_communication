@@ -1,3 +1,3 @@
-int32 roboyID
+int32 roboy_id
 string name
 float32 radian
