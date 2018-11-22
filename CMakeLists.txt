@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 project( roboy_communication )
 
 add_subdirectory(roboy_communication_actions)
-add_subdirectory(roboy_communication_cognition)
-add_subdirectory(roboy_communication_control)
-add_subdirectory(roboy_communication_middleware)
-add_subdirectory(roboy_communication_simulation)
+add_subdirectory(roboy_cognition_msgs)
+add_subdirectory(roboy_control_msgs)
+add_subdirectory(roboy_middleware_msgs)
+add_subdirectory(roboy_simulation_msgs)
 
 

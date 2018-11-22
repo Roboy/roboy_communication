@@ -1,0 +1,6 @@
+# if empty check all motors, otherwise only the requested
+uint8[] motorids
+---
+# returns which control modes are functional
+bool[] position
+bool[] displacement

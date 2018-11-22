@@ -1,2 +1,0 @@
-int32 sensorID
-geometry_msgs/Vector3 pos

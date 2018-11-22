@@ -1,5 +1,0 @@
-int32 control_mode # 0: position, 1: velocity, 2: displacement
-int32 setPoint
-# if left empty, all motors will be changed to the requested control mode
-int16[] motorId
----

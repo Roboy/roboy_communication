@@ -1,0 +1,16 @@
+int32 id
+uint8[] motors
+uint8[] control_mode
+int32[] output_pos_max
+int32[] output_neg_max
+int32[] sp_pos_max
+int32[] sp_neg_max
+uint16[] kp
+uint16[] ki
+uint16[] kd
+uint16[] forward_gain
+uint16[] dead_band
+int32[] integral_pos_max
+int32[] integral_neg_max
+int32[] output_divider
+int32[] setpoint
