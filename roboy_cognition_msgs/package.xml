@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>roboy_communication_cognition</name>
+  <name>roboy_cognition_msgs</name>
   <version>3.0.2</version>
   <description>Custom messages and services of Roboy cognition</description>
   <maintainer email="unicorn@roboy.org">Alona Kharchenko</maintainer>
