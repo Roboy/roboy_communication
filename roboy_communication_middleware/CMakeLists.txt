@@ -50,6 +50,7 @@ add_service_files(
         JointController.srv
 		MotorCalibrationService.srv
         MotorConfigService.srv
+		MyoBrickCalibrationService.srv
 		SetInt16.srv
         SystemCheck.srv
         TorqueControl.srv
