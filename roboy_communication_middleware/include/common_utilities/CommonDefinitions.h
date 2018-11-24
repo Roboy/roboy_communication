@@ -178,18 +178,21 @@ typedef struct {
 // negative displacement on compression of the spring and needs to be dealt with in fpga PID controllers
 #define SHOULDER_LEFT 3
 #define SHOULDER_RIGHT 4
+#define UNKNOWN 5
 
 static std::map<int, std::vector<int>> active_motors = {{HEAD, {9, 10, 11 ,12, 13, 14}},
                                                         {SPINE_LEFT, {0, 1, 2, 3, 4, 5, 10, 11}},
                                                         {SPINE_RIGHT, {0, 1, 2, 3, 4, 5, 9, 10}},
                                                         {SHOULDER_LEFT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}},
-                                                        {SHOULDER_RIGHT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11}}};
+                                                        {SHOULDER_RIGHT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11}},
+                                                        {UNKNOWN, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}}};
 
 static std::map<int, std::vector<uint8_t>> myo_bricks = {{HEAD, {9, 10, 11 ,12, 13, 14}},
                                                         {SPINE_LEFT, {10, 11}},
                                                         {SPINE_RIGHT, {9, 10}},
                                                         {SHOULDER_LEFT, {11, 12}},
-                                                        {SHOULDER_RIGHT, {10, 12}}};
+                                                        {SHOULDER_RIGHT, {10, 12}},
+                                                         {UNKNOWN, {}}};
 
 typedef enum{
     MYOMUSCLE500N,
@@ -209,7 +212,12 @@ static std::map<int, std::vector<MOTORTYPE>> motor_type = {{HEAD, {MYOBRICK100N,
                                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                                   MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                  MYOBRICK300N, MYOBRICK300N}}};
+                                                                                  MYOBRICK300N, MYOBRICK300N}},
+                                                           {UNKNOWN,{MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                            MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N}}};
 
 static const std::vector<std::string> bodyParts = {"head",  "spine_left",  "spine_right", "shoulder_left", "shoulder_right"};
 
