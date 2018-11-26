@@ -219,7 +219,7 @@ static std::map<int, std::vector<MOTORTYPE>> motor_type = {{HEAD, {MYOBRICK100N,
                                                                    MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                             MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N}}};
 
-static const std::vector<std::string> bodyParts = {"head",  "spine_left",  "spine_right", "shoulder_left", "shoulder_right", "unknown"};
+static const std::vector<std::string> bodyParts = {"head",  "spine_left",  "spine_right", "shoulder_left", "shoulder_right"};
 static std::map<std::string,int> bodyPartIDs = {{"head", HEAD}, {"spine_left", SPINE_LEFT}, {"spine_right", SPINE_RIGHT},
                                                  {"shoulder_left", SHOULDER_LEFT}, {"shoulder_right", SHOULDER_RIGHT}, {"unknown", UNKNOWN}};
 
