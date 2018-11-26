@@ -181,15 +181,15 @@ typedef struct {
 #define UNKNOWN 5
 
 static std::map<int, std::vector<int>> active_motors = {{HEAD, {9, 10, 11 ,12, 13, 14}},
-                                                        {SPINE_LEFT, {0, 1, 2, 3, 4, 5, 10, 11}},
-                                                        {SPINE_RIGHT, {0, 1, 2, 3, 4, 5, 9, 10}},
-                                                        {SHOULDER_LEFT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}},
+                                                        {SPINE_LEFT, {}},
+                                                        {SPINE_RIGHT, {9, 10, 11, 12, 13, 14}},
+                                                        {SHOULDER_LEFT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}},
                                                         {SHOULDER_RIGHT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11}},
                                                         {UNKNOWN, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}}};
 
 static std::map<int, std::vector<uint8_t>> myo_bricks = {{HEAD, {9, 10, 11 ,12, 13, 14}},
-                                                        {SPINE_LEFT, {10, 11}},
-                                                        {SPINE_RIGHT, {9, 10}},
+                                                        {SPINE_LEFT, {}},
+                                                        {SPINE_RIGHT, {9, 10, 11, 12, 13, 14}},
                                                         {SHOULDER_LEFT, {11, 12}},
                                                         {SHOULDER_RIGHT, {10, 12}},
                                                          {UNKNOWN, {}}};
@@ -201,8 +201,8 @@ typedef enum{
 }MOTORTYPE;
 
 static std::map<int, std::vector<MOTORTYPE>> motor_type = {{HEAD, {MYOBRICK100N, MYOBRICK300N, MYOBRICK100N ,MYOBRICK100N, MYOBRICK300N, MYOBRICK100N}},
-                                                         {SPINE_LEFT, {MYOBRICK300N, MYOBRICK300N, MYOBRICK300N}},
-                                                         {SPINE_RIGHT, {MYOBRICK300N, MYOBRICK300N, MYOBRICK300N}},
+                                                         {SPINE_LEFT, {}},
+                                                         {SPINE_RIGHT, {MYOBRICK300N, MYOBRICK300N, MYOBRICK300N, MYOBRICK300N, MYOBRICK300N, MYOBRICK300N}},
                                                          {SHOULDER_LEFT, {MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                                  MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                                  MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
