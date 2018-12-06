@@ -2,5 +2,5 @@
 uint8[] motorids
 ---
 # returns which control modes are functional
-bool[] position
-bool[] displacement
+bool[] position2
+bool[] displacement2
