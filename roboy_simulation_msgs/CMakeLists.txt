@@ -43,6 +43,8 @@ add_service_files(
         FILES
         UpdateControllerParameters.srv
         Energies.srv
+	GymStep.srv
+	GymReset.srv
 )
 
 generate_messages(DEPENDENCIES std_msgs std_srvs geometry_msgs)
