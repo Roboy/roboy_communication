@@ -34,6 +34,8 @@ set(msg_files
 set(srv_files
     "srv/UpdateControllerParameters.srv"
     "srv/Energies.srv"
+    "srv/GymStep.srv"
+    "srv/GymReset.srv"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}
