@@ -1,6 +1,7 @@
 #goal definition
-string endEffector
+string endeffector
 int32 type # 0: pose in world frame 1: pose relative to target_frame 2: joint angle control
+int32 ik_type
 geometry_msgs/Pose pose
 string target_frame
 bool sendToRealHardware

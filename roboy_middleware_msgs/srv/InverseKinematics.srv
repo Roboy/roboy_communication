@@ -3,7 +3,7 @@ string endeffector
 # 0: position and orientation 1: position only 2: orientation only
 int8 type
 # the frame of the ik target
-string frame
+string target_frame
 # target position/orientation for frame in world coordinates (if applicable)
 geometry_msgs/Pose pose
 ---
