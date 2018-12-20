@@ -27,7 +27,6 @@ export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
 # 	cd ${CURDIR}/src/roboy_powerlink/openPowerLink/stack/build/linux && cmake -DCMAKE_BUILD_TYPE=Debug ../.. && make -j9 install && cmake -DCMAKE_BUILD_TYPE=Release ../.. && make -j9 install
 
 override_dh_auto_build:
-	pip install -r requirements.txt
 	if [ -f "/opt/ros/bouncy/setup.sh" ]; then . "/opt/ros/bouncy/setup.sh"; fi && \
 	colcon_build
 
