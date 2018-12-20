@@ -27,6 +27,7 @@ export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
 # 	cd ${CURDIR}/src/roboy_powerlink/openPowerLink/stack/build/linux && cmake -DCMAKE_BUILD_TYPE=Debug ../.. && make -j9 install && cmake -DCMAKE_BUILD_TYPE=Release ../.. && make -j9 install
 
 override_dh_auto_build:
+	export COLCON_CURRENT_PREFIX=/opt/ros/bouncy/
 	if [ -f "/opt/ros/bouncy/setup.sh" ]; then . "/opt/ros/bouncy/setup.sh"; fi && \
 	colcon build
 
@@ -35,6 +36,7 @@ override_dh_auto_test:
 override_dh_shlibdeps:
 
 override_dh_auto_install:
+	export COLCON_CURRENT_PREFIX=/opt/ros/bouncy/
 	if [ -f "/opt/ros/bouncy/setup.sh" ]; then . "/opt/ros/bouncy/setup.sh"; fi && \
 	#if [ -f "${CURDIR}/debian/roboy/opt/ros/kinetic/setup.sh" ]; then . "${CURDIR}/debian/roboy/opt/ros/kinetic/setup.sh"; fi && \
 	colcon build --install-base=${CURDIR}/debian/roboy/opt/ros/bouncy -DCMAKE_BUILD_TYPE=Release
