@@ -39,6 +39,6 @@ override_dh_auto_install:
 	export COLCON_CURRENT_PREFIX=/opt/ros/bouncy/
 	if [ -f "/opt/ros/bouncy/setup.sh" ]; then . "/opt/ros/bouncy/setup.sh"; fi && \
 	#if [ -f "${CURDIR}/debian/roboy/opt/ros/kinetic/setup.sh" ]; then . "${CURDIR}/debian/roboy/opt/ros/kinetic/setup.sh"; fi && \
-	colcon build --install-base=${CURDIR}/debian/roboy/opt/ros/bouncy -DCMAKE_BUILD_TYPE=Release
+	colcon build --install-base=${CURDIR}/debian/roboy/opt/ros/bouncy 
 	#mvn install -Dmaven.test.skip=true -DoutputDirectory=${CURDIR}/debian/roboy/opt/ros/kinetic/share/RoboyDialogSytem
 	find ${CURDIR}/debian/roboy-ros1-bridge/opt/ros/bouncy -type f -maxdepth 1 -delete
