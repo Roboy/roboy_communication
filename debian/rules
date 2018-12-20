@@ -20,7 +20,7 @@ export LDFLAGS=
 # 	https://github.com/ros-infrastructure/bloom/issues/327
 export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
 # export GRADLE_USER_HOME = /var/lib/jenkins/.gradle/
-export COLCON_CURRENT_PREFIX=/opt/ros/bouncy/
+export COLCON_CURRENT_PREFIX=/opt/ros/bouncy
 %:
 	dh  $@
 
