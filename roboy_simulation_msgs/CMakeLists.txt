@@ -36,6 +36,7 @@ set(srv_files
     "srv/Energies.srv"
     "srv/GymStep.srv"
     "srv/GymReset.srv"
+    "srv/GymGoal.srv"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}
