@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project( roboy_communication )
 
-add_subdirectory(roboy_cognition_msgs)
-add_subdirectory(roboy_control_msgs)
-add_subdirectory(roboy_middleware_msgs)
-add_subdirectory(roboy_simulation_msgs)
+include(roboy_cognition_msgs/CMakeLists.txt)
+include(roboy_control_msgs/CMakeLists.txt)
+include(roboy_middleware_msgs/CMakeLists.txt)
+include(roboy_simulation_msgs/CMakeLists.txt)
