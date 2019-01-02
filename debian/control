@@ -1,12 +1,12 @@
-Source: roboy-ros1-bridge
+Source: ros-bouncy-roboy-msgs
 Section: misc
 Priority: extra
-Maintainer: Simon Trendel <simon.trendel@tum.de>
+Maintainer: Alona Kharchenko <unicorn@roboy.org>
 Build-Depends: debhelper (>= 9.0.0)
 Homepage: http://github.com/Roboy/Roboy
 Standards-Version: 3.9.7
 
-Package: roboy-ros1-bridge
+Package: ros-bouncy-roboy-msgs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: ros1_bridge with roboy_communication
+Description: roboy_communication for ROS bouncy
