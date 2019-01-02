@@ -1,5 +1,4 @@
 #!/usr/bin/make -f
-
 # -*- makefile -*-
 # Sample debian/rules that uses debhelper.
 # This file was originally written by Joey Hess and Craig Small.
@@ -9,34 +8,53 @@
 
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
-export DH_OPTIONS=-v
 # TODO: remove the LDFLAGS override.  It's here to avoid esoteric problems
 # of this sort:
 #  https://code.ros.org/trac/ros/ticket/2977
 #  https://code.ros.org/trac/ros/ticket/3842
 export LDFLAGS=
-# export PKG_CONFIG_PATH=/opt/ros/kinetic/lib/pkgconfig
+export PKG_CONFIG_PATH=@(InstallationPrefix)/lib/pkgconfig
 # Explicitly enable -DNDEBUG, see:
 # 	https://github.com/ros-infrastructure/bloom/issues/327
 export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
-# export GRADLE_USER_HOME = /var/lib/jenkins/.gradle/
-export COLCON_CURRENT_PREFIX=/opt/ros/bouncy
-%:
-	dh  $@
 
-# override_dh_auto_configure:
-# 	cd ${CURDIR}/src/roboy_powerlink/openPowerLink/stack/build/linux && cmake -DCMAKE_BUILD_TYPE=Debug ../.. && make -j9 install && cmake -DCMAKE_BUILD_TYPE=Release ../.. && make -j9 install
+%:
+	dh $@@ -v --buildsystem=cmake
+
+override_dh_auto_configure:
+	# In case we're installing to a non-standard location, look for a setup.sh
+	# in the install tree that was dropped by catkin, and source it.  It will
+	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "/opt/ros/bouncy/setup.sh"; fi && \
+	dh_auto_configure -- \
+		-DCMAKE_INSTALL_PREFIX="/opt/ros/bouncy" \
+		-DAMENT_PREFIX_PATH="/opt/ros/bouncy"
 
 override_dh_auto_build:
+	# In case we're installing to a non-standard location, look for a setup.sh
+	# in the install tree that was dropped by catkin, and source it.  It will
+	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
 	if [ -f "/opt/ros/bouncy/setup.sh" ]; then . "/opt/ros/bouncy/setup.sh"; fi && \
-	colcon build
+	dh_auto_build
 
 override_dh_auto_test:
+	# In case we're installing to a non-standard location, look for a setup.sh
+	# in the install tree that was dropped by catkin, and source it.  It will
+	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+	echo -- Running tests. Even if one of them fails the build is not canceled.
+	if [ -f "/opt/ros/bouncy/setup.sh" ]; then . "/opt/ros/bouncy/setup.sh"; fi && \
+	dh_auto_test || true
 
 override_dh_shlibdeps:
+	# In case we're installing to a non-standard location, look for a setup.sh
+	# in the install tree that was dropped by catkin, and source it.  It will
+	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+	if [ -f "/opt/ros/bouncy/setup.sh" ]; then . "/opt/ros/bouncy/setup.sh"; fi && \
+	dh_shlibdeps -l$(CURDIR)/debian/@(Package)/opt/ros/bouncy/lib/
 
 override_dh_auto_install:
-	export COLCON_CURRENT_PREFIX=/opt/ros/bouncy/
+	# In case we're installing to a non-standard location, look for a setup.sh
+	# in the install tree that was dropped by catkin, and source it.  It will
+	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
 	if [ -f "/opt/ros/bouncy/setup.sh" ]; then . "/opt/ros/bouncy/setup.sh"; fi && \
-	colcon build --install-base=${CURDIR}/debian/roboy-ros1-bridge/opt/ros/bouncy
-	find ${CURDIR}/debian/roboy-ros1-bridge/opt/ros/bouncy -type f -maxdepth 1 -delete
+	dh_auto_install
