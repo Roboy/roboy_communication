@@ -17,6 +17,7 @@ export PKG_CONFIG_PATH=/opt/ros/bouncy/lib/pkgconfig
 # Explicitly enable -DNDEBUG, see:
 # 	https://github.com/ros-infrastructure/bloom/issues/327
 export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
+export COLCON_CURRENT_PREFIX=/opt/ros/bouncy
 
 %:
 	dh $@ -v --buildsystem=cmake
