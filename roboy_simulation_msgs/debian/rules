@@ -25,7 +25,7 @@ override_dh_auto_configure:
 	# In case we're installing to a non-standard location, look for a setup.sh
 	# in the install tree that was dropped by catkin, and source it.  It will
 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
-	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "/opt/ros/bouncy/setup.sh"; fi && \
+	if [ -f "/opt/ros/bouncy/setup.sh" ]; then . "/opt/ros/bouncy/setup.sh"; fi && \
 	dh_auto_configure -- \
 		-DCMAKE_INSTALL_PREFIX="/opt/ros/bouncy" \
 		-DAMENT_PREFIX_PATH="/opt/ros/bouncy"
