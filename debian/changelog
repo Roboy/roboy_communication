@@ -1,0 +1,5 @@
+ros-kinetic-roboy-msgs (2.0.0-1) xenial; urgency=low
+
+  * roboy_communication for ROS kinetic
+
+ -- Alona Kharchenko <unicorn@roboy.org>  Sat, 20 May 2017 13:39:27 +0200
