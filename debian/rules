@@ -25,19 +25,15 @@ export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
 override_dh_auto_configure:
 
 override_dh_auto_build:
-	cd ..
 	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh"; fi && \
-	catkin_make_isolated
-	cd -
+	catkin_make_isolated --source ../..
 
 override_dh_auto_test:
 
 override_dh_shlibdeps:
 
 override_dh_auto_install:
-	cd ..
 	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh"; fi && \
-	catkin_make_isolated --install --install-space=${CURDIR}/src/debian/ros-kinetic-roboy-msgs/opt/ros/kinetic -DCMAKE_BUILD_TYPE=Release
-	cd -
+	catkin_make_isolated --source ../.. --install --install-space=${CURDIR}/debian/ros-kinetic-roboy-msgs/opt/ros/kinetic -DCMAKE_BUILD_TYPE=Release
 	find ${CURDIR}/debian/ros-kinetic-roboy-msgs/opt/ros/kinetic -type f -maxdepth 1 -delete
 	
