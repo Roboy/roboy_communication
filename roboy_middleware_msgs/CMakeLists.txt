@@ -47,6 +47,7 @@ add_service_files(
 		FrameIK.srv
 		ForwardKinematics.srv
         InverseKinematics.srv
+        InverseKinematicsTwoFrames.srv
         JointController.srv
 		MotorCalibrationService.srv
         MotorConfigService.srv

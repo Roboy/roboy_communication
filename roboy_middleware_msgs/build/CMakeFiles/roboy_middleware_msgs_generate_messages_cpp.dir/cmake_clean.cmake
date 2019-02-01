@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/roboy_middleware_msgs_generate_messages_cpp"
+  "devel/include/roboy_middleware_msgs/ArmStatus.h"
+  "devel/include/roboy_middleware_msgs/ArucoPose.h"
+  "devel/include/roboy_middleware_msgs/DarkRoomStatus.h"
+  "devel/include/roboy_middleware_msgs/DarkRoomSensor.h"
+  "devel/include/roboy_middleware_msgs/ControllerState.h"
+  "devel/include/roboy_middleware_msgs/HandCommand.h"
+  "devel/include/roboy_middleware_msgs/DarkRoom.h"
+  "devel/include/roboy_middleware_msgs/FingerCommand.h"
+  "devel/include/roboy_middleware_msgs/ADCvalue.h"
+  "devel/include/roboy_middleware_msgs/MotorAngle.h"
+  "devel/include/roboy_middleware_msgs/DarkRoomOOTX.h"
+  "devel/include/roboy_middleware_msgs/DanceCommand.h"
+  "devel/include/roboy_middleware_msgs/MotorCommand.h"
+  "devel/include/roboy_middleware_msgs/LighthousePoseCorrection.h"
+  "devel/include/roboy_middleware_msgs/MotorConfig.h"
+  "devel/include/roboy_middleware_msgs/MotorStatus.h"
+  "devel/include/roboy_middleware_msgs/DarkRoomStatistics.h"
+  "devel/include/roboy_middleware_msgs/MagneticSensor.h"
+  "devel/include/roboy_middleware_msgs/EmergencyStop.h"
+  "devel/include/roboy_middleware_msgs/InverseKinematics.h"
+  "devel/include/roboy_middleware_msgs/ControlMode.h"
+  "devel/include/roboy_middleware_msgs/SystemCheck.h"
+  "devel/include/roboy_middleware_msgs/JointController.h"
+  "devel/include/roboy_middleware_msgs/TorqueControl.h"
+  "devel/include/roboy_middleware_msgs/MotorConfigService.h"
+  "devel/include/roboy_middleware_msgs/SetInt16.h"
+  "devel/include/roboy_middleware_msgs/MotorCalibrationService.h"
+  "devel/include/roboy_middleware_msgs/ForwardKinematics.h"
+  "devel/include/roboy_middleware_msgs/MyoBrickCalibrationService.h"
+  "devel/include/roboy_middleware_msgs/XL320.h"
+  "devel/include/roboy_middleware_msgs/DanceTrajectory.h"
+  "devel/include/roboy_middleware_msgs/FrameIK.h"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/roboy_middleware_msgs_generate_messages_cpp.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
