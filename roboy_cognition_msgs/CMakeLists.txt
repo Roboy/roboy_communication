@@ -8,7 +8,7 @@ find_package(catkin REQUIRED cmake_modules COMPONENTS
         message_generation
 )
 
-include_directories(    
+include_directories(
         ${catkin_INCLUDE_DIRS}
 )
 
@@ -18,9 +18,10 @@ add_message_files(
 	AudioInfo.msg
 	DirectionVector.msg
 	FaceCoordinates.msg
-	NewFacialFeatures.msg
+	FacialFeatures.msg
 	SpeechSynthesis.msg
 	AudioLocation.msg
+  RecognizedFaces.msg
 )
 
 add_service_files(
@@ -43,6 +44,7 @@ add_service_files(
 	LookAtSpeaker.srv
 	QualityOfTone.srv
 	QualityOfTones.srv
+  RecognizeFaces.srv
 	RecognizeObject.srv
 	RecognizeSpeech.srv
 	SaveObject.srv
