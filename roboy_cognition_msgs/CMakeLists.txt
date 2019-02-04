@@ -13,9 +13,10 @@ set(msg_files
   "msg/AudioInfo.msg"
   "msg/DirectionVector.msg"
   "msg/FaceCoordinates.msg"
-  "msg/NewFacialFeatures.msg"
+  "msg/FacialFeatures.msg"
   "msg/SpeechSynthesis.msg"
   "msg/AudioLocation.msg"
+  "msg/RecognizedFaces.msg"
 )
 
 set(srv_files
@@ -23,6 +24,7 @@ set(srv_files
 	"srv/GenerateAnswer.srv"
 	"srv/QualityOfTone.srv"
 	"srv/QualityOfTones.srv"
+  "srv/RecognizeFaces.srv"
 	"srv/RecognizeObject.srv"
 	"srv/RecognizeSpeech.srv"
 	"srv/Talk.srv"
