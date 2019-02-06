@@ -8,5 +8,5 @@ Standards-Version: 3.9.7
 
 Package: ros-melodic-roboy-msgs
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-moveit-msgs
 Description: roboy_communication for ROS melodic
