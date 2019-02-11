@@ -1,4 +1,4 @@
-ros-melodic-roboy-msgs (2.0.0-1) xenial; urgency=low
+ros-melodic-roboy-msgs (2.0.0-1) melodic; urgency=low
 
   * roboy_communication for ROS melodic
 
