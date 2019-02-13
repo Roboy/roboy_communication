@@ -7,7 +7,6 @@ find_package(catkin REQUIRED cmake_modules COMPONENTS
         roscpp
         std_msgs
         geometry_msgs
-		moveit_msgs
         std_srvs
         message_generation
         )
@@ -58,8 +57,8 @@ add_service_files(
 )
 
 generate_messages(
-        DEPENDENCIES std_msgs geometry_msgs std_srvs moveit_msgs
+        DEPENDENCIES std_msgs geometry_msgs std_srvs 
 )
 
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation moveit_msgs
+catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation 
                 INCLUDE_DIRS include)
