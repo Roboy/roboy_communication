@@ -69,7 +69,7 @@ add_action_files(
 )
 
 generate_messages(
-        DEPENDENCIES std_msgs std_srvs actionlib_msgs
+        DEPENDENCIES std_msgs std_srvs actionlib_msgs geometry_msgs
 )
 
 catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation actionlib_msgs
