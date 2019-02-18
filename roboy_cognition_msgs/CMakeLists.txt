@@ -17,6 +17,7 @@ set(msg_files
   "msg/SpeechSynthesis.msg"
   "msg/AudioLocation.msg"
   "msg/RecognizedFaces.msg"
+  "msg/RecognizedSpeech.msg"
 )
 
 set(srv_files
