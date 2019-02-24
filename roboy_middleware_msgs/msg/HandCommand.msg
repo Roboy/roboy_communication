@@ -1,3 +1,3 @@
-uint8 id
-uint8[] set_point
-uint8[] motorid
+uint8 hand_id
+uint8 command
+uint8[] lock_finger_ids
