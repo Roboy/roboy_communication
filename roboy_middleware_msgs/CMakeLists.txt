@@ -26,7 +26,6 @@ add_message_files(
         DarkRoomSensor.msg
         DarkRoomStatistics.msg
         DarkRoomStatus.msg
-        FingerCommand.msg
         HandCommand.msg
         LighthousePoseCorrection.msg
         MagneticSensor.msg
