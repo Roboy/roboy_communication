@@ -235,6 +235,10 @@ static std::map<std::string, int> bodyPartNameToIdMap {
             {"leg_right", LEG_RIGHT},
             {"unknown", UNKNOWN}};
 
+static std::map<int, int> bodyPartToFGPAMap = {{SHOULDER_LEFT, FPGA_LEFT},
+                                               {LEG_LEFT, FPGA_LEFT},
+                                               {SHOULDER_RIGHT, FPGA_RIGHT},
+                                               {LEG_RIGHT, FPGA_RIGHT}};
 
 static std::map<std::string, std::vector<int>> body_part_motors = {{"head", {9,10,11,12,13,14}},
                                                         {"shoulder_left", {0,1,2,3,4,5,6,7,8}},
