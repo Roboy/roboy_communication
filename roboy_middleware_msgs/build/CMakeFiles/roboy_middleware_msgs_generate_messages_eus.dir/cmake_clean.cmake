@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/roboy_middleware_msgs_generate_messages_eus"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/ArmStatus.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/ArucoPose.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/DarkRoomStatus.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/DarkRoomSensor.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/ControllerState.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/HandCommand.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/DarkRoom.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/FingerCommand.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/ADCvalue.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/MotorAngle.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/DarkRoomOOTX.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/DanceCommand.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/MotorCommand.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/LighthousePoseCorrection.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/MotorConfig.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/MotorStatus.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/DarkRoomStatistics.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/msg/MagneticSensor.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/EmergencyStop.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/InverseKinematics.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/ControlMode.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/SystemCheck.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/JointController.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/TorqueControl.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/MotorConfigService.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/SetInt16.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/MotorCalibrationService.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/ForwardKinematics.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/MyoBrickCalibrationService.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/XL320.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/DanceTrajectory.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/srv/FrameIK.l"
+  "devel/share/roseus/ros/roboy_middleware_msgs/manifest.l"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/roboy_middleware_msgs_generate_messages_eus.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
