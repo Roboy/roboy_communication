@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/roboy_middleware_msgs_generate_messages_lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/ArmStatus.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/ArucoPose.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/DarkRoomStatus.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/DarkRoomSensor.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/ControllerState.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/HandCommand.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/DarkRoom.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/FingerCommand.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/ADCvalue.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/MotorAngle.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/DarkRoomOOTX.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/DanceCommand.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/MotorCommand.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/LighthousePoseCorrection.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/MotorConfig.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/MotorStatus.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/DarkRoomStatistics.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/msg/MagneticSensor.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/EmergencyStop.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/InverseKinematics.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/ControlMode.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/SystemCheck.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/JointController.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/TorqueControl.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/MotorConfigService.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/SetInt16.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/MotorCalibrationService.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/ForwardKinematics.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/MyoBrickCalibrationService.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/XL320.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/DanceTrajectory.lisp"
+  "devel/share/common-lisp/ros/roboy_middleware_msgs/srv/FrameIK.lisp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/roboy_middleware_msgs_generate_messages_lisp.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

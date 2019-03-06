@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: roboy_middleware_msgs
+Description: Description of roboy_middleware_msgs
+Version: 1.0.0
+Cflags: -I/usr/local/include
+Libs: -L/usr/local/lib 
+Requires: roscpp message_runtime message_generation moveit_msgs
