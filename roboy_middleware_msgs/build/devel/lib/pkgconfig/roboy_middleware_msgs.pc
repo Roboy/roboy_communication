@@ -1,8 +1,0 @@
-prefix=/home/roboy/DriverlessDriver/catkin_ws/src/roboy_control/src/CARDSflow/roboy_communication/roboy_middleware_msgs/build/devel
-
-Name: roboy_middleware_msgs
-Description: Description of roboy_middleware_msgs
-Version: 1.0.0
-Cflags: -I/home/roboy/DriverlessDriver/catkin_ws/src/roboy_control/src/CARDSflow/roboy_communication/roboy_middleware_msgs/build/devel/include -I/home/roboy/DriverlessDriver/catkin_ws/src/roboy_control/src/CARDSflow/roboy_communication/roboy_middleware_msgs/include
-Libs: -L/home/roboy/DriverlessDriver/catkin_ws/src/roboy_control/src/CARDSflow/roboy_communication/roboy_middleware_msgs/build/devel/lib 
-Requires: roscpp message_runtime message_generation moveit_msgs
