@@ -22,6 +22,7 @@ add_message_files(
 	SpeechSynthesis.msg
 	AudioLocation.msg
   RecognizedFaces.msg
+  RecognizedSpeech.msg
 )
 
 add_service_files(
