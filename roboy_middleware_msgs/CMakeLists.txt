@@ -27,6 +27,7 @@ add_message_files(
         DarkRoomStatistics.msg
         DarkRoomStatus.msg
         HandCommand.msg
+		JointStatus.msg
         LighthousePoseCorrection.msg
         MagneticSensor.msg
 		MotorAngle.msg
