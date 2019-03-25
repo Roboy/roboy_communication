@@ -21,7 +21,7 @@ add_message_files(
 	FacialFeatures.msg
 	SpeechSynthesis.msg
 	AudioLocation.msg
-  RecognizedFaces.msg
+    RecognizedFaces.msg
 )
 
 add_service_files(
@@ -42,9 +42,10 @@ add_service_files(
 	GenerateAnswer.srv
 	GetObject.srv
 	LookAtSpeaker.srv
+	PlaySound.srv
 	QualityOfTone.srv
 	QualityOfTones.srv
-  RecognizeFaces.srv
+    RecognizeFaces.srv
 	RecognizeObject.srv
 	RecognizeSpeech.srv
 	SaveObject.srv
