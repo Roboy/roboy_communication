@@ -182,7 +182,7 @@ typedef struct {
 #define LEG_LEFT 1
 #define LEG_RIGHT 2
 
-static std::map<int, std::vector<int>> active_motors = {{FPGA_LEFT, {0,1,2,3,4,5,6,7,8,15,16,17,18,19,20}},
+static std::map<int, std::vector<int>> active_motors = {{FPGA_LEFT, {9,10,11,12,13,14,15,16,17,18,19,20}}, //0,1,2,3,4,5,6,7,8,9,
                                                         {FPGA_RIGHT, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}},
                                                         {UNKNOWN, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}}};
 
@@ -205,9 +205,9 @@ static std::map<int, std::vector<MOTORTYPE>> motor_type = {{FPGA_LEFT, {MYOMUSCL
                                                          {FPGA_RIGHT, {MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                  MYOBRICK300N,MYOBRICK300N,
+                                                                                  MYOBRICK100N,MYOBRICK300N,
                                                                                   MYOBRICK300N, MYOBRICK300N,
-                                                                                  MYOBRICK300N, MYOBRICK300N,
+                                                                                  MYOBRICK300N, MYOBRICK100N,
                                                                               MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                               MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N}},
                                                            {UNKNOWN,{MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
@@ -243,7 +243,7 @@ static std::map<int, int> bodyPartToFGPAMap = {{SHOULDER_LEFT, FPGA_LEFT},
                                                {LEG_RIGHT, FPGA_RIGHT}};
 
 static std::map<std::string, std::vector<int>> body_part_motors = {{"head", {9,10,11,12,13,14}},
-                                                        {"shoulder_left", {0,1,2,3,4,5,6,7,8}},
+                                                        {"shoulder_left", {9,10,11,12,13,14}},
                                                         {"shoulder_right", {0,1,2,3,4,5,6,7,8}},
                                                         {"leg_left", {15,16,17,18,19,20}},
                                                         {"leg_right", {15,16,17,18,19,20}}};
