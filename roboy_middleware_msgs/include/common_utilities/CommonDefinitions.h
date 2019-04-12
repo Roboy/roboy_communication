@@ -142,10 +142,12 @@ enum PLANE {
 
 enum CONTROLMODES {
     POSITION = 0,
-    VELOCITY,
-    DISPLACEMENT,
-    DISPLACEMENT_MYOBRICKS,
-    FORCE
+    VELOCITY = 1,
+    DISPLACEMENT = 2,
+    DISPLACEMENT_MYOBRICKS = 3,
+    FORCE = 4,
+    CURRENT = 5,
+    DIRECT_PWM = 6
 };
 
 typedef struct {
