@@ -188,8 +188,8 @@ static std::map<int, std::vector<int>> active_motors = {{FPGA_LEFT, {0,1,2,3,4,5
                                                         {FPGA_RIGHT, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}},
                                                         {UNKNOWN, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}}};
 
-static std::map<int, std::vector<uint8_t>> myo_bricks = {{FPGA_LEFT, {}},
-                                                        {FPGA_RIGHT, {9,10,11,12,13,14}},
+static std::map<int, std::vector<uint8_t>> myo_bricks = {{FPGA_LEFT, {9,10,11,12,13,14}},
+                                                        {FPGA_RIGHT, {}},
                                                          {UNKNOWN, {}}};
 
 typedef enum{
