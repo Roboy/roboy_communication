@@ -142,27 +142,29 @@ enum PLANE {
 
 enum CONTROLMODES {
     POSITION = 0,
-    VELOCITY,
-    DISPLACEMENT,
-    DISPLACEMENT_MYOBRICKS,
-    FORCE
+    VELOCITY = 1,
+    DISPLACEMENT = 2,
+    DISPLACEMENT_MYOBRICKS = 3,
+    FORCE = 4,
+    CURRENT = 5,
+    DIRECT_PWM = 6
 };
 
 typedef struct {
-    uint8_t control_mode;
-    int32_t outputPosMax = 4000; /*!< maximum control output in the positive direction in counts, max 4000*/
-    int32_t outputNegMax = -4000; /*!< maximum control output in the negative direction in counts, max -4000*/
-    int32_t spPosMax;/*<!Positive limit for the set point.*/
-    int32_t spNegMax;/*<!Negative limit for the set point.*/
-    int16_t Kp = 100;/*!<Gain of the proportional component*/
-    int16_t Ki = 0;/*!<Gain of the integral component*/
-    int16_t Kd = 0;/*!<Gain of the differential component*/
-    int16_t forwardGain = 0; /*!<Gain of  the feed-forward term*/
-    int16_t deadBand = 0;/*!<Optional deadband threshold for the control response*/
-    int16_t IntegralPosMax; /*!<Integral positive component maximum*/
-    int16_t IntegralNegMax; /*!<Integral negative component maximum*/
+    float control_mode;
+    float outputPosMax = 4000; /*!< maximum control output in the positive direction in counts, max 4000*/
+    float outputNegMax = -4000; /*!< maximum control output in the negative direction in counts, max -4000*/
+    float spPosMax;/*<!Positive limit for the set point.*/
+    float spNegMax;/*<!Negative limit for the set point.*/
+    float Kp = 100;/*!<Gain of the proportional component*/
+    float Ki = 0;/*!<Gain of the integral component*/
+    float Kd = 0;/*!<Gain of the differential component*/
+    float forwardGain = 0; /*!<Gain of  the feed-forward term*/
+    float deadBand = 0;/*!<Optional deadband threshold for the control response*/
+    float IntegralPosMax; /*!<Integral positive component maximum*/
+    float IntegralNegMax; /*!<Integral negative component maximum*/
     float radPerEncoderCount = {2 * 3.14159265359f / (2000.0f * 53.0f)};
-    int32_t outputDivider = 100; /*! This divides the output of the PID controllers */
+    float outputDivider = 100; /*! This divides the output of the PID controllers */
 } control_Parameters_t;
 
 #define NUMBER_OF_MOTORS_PER_FPGA 21
@@ -182,7 +184,7 @@ typedef struct {
 #define LEG_LEFT 1
 #define LEG_RIGHT 2
 
-static std::map<int, std::vector<int>> active_motors = {{FPGA_LEFT, {9,10,11,12,13,14,15,16,17,18,19,20}}, //0,1,2,3,4,5,6,7,8,9,
+static std::map<int, std::vector<int>> active_motors = {{FPGA_LEFT, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}},
                                                         {FPGA_RIGHT, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}},
                                                         {UNKNOWN, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}}};
 
