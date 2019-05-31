@@ -192,6 +192,14 @@ static std::map<int, std::vector<uint8_t>> myo_bricks = {{FPGA_LEFT, {}},
                                                         {FPGA_RIGHT, {9,10,11,12,13,14}},
                                                          {UNKNOWN, {}}};
 
+
+static std::map<int, std::vector<int>> encoder_multiplier = {{FPGA_LEFT, {}},
+                                                         {FPGA_RIGHT, {1,1,1,1,1,1}},
+                                                         {UNKNOWN, {}}};
+static std::map<int, std::vector<int>> gearbox_ratio = {{FPGA_LEFT, {}},
+                                                             {FPGA_RIGHT, {1,1,1,1,1,1}},
+                                                             {UNKNOWN, {}}};
+
 typedef enum{
     MYOMUSCLE500N,
     MYOBRICK300N,
