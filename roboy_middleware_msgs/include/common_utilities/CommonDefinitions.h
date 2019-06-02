@@ -138,6 +138,9 @@ enum PLANE {
 #define myoBrick300NMeterPerEncoderTick(encoderTicks) ((encoderTicks)/(1024.0*62.0)*(2.0*M_PI*0.003))
 #define myoBrick300NEncoderTicksPerMeter(meter) ((meter)*(1024.0*62.0)/(2.0*M_PI*0.003))
 
+ #define springEncoderTicksPerMeter(meter) (10*1000*meter)
+ #define springMeterPerEncoderTicks(encoderTicks) (encoderTicks/(10*1000))
+
 #define NUMBER_OF_CONTROL_MODES 4
 
 enum CONTROLMODES {
