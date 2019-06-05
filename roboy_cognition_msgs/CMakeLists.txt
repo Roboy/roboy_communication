@@ -44,6 +44,7 @@ add_service_files(
 	GenerateAnswer.srv
 	GetObject.srv
 	LookAtSpeaker.srv
+	OrderIceCream.srv
 	PlaySound.srv
 	QualityOfTone.srv
 	QualityOfTones.srv
