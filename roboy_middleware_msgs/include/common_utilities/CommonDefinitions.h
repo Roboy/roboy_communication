@@ -196,7 +196,7 @@ static std::map<int, std::vector<uint8_t>> myo_bricks = {{FPGA_LEFT, {}},
 static std::map<int, std::vector<int>> encoder_multiplier = {{FPGA_LEFT, {}},
                                                          {FPGA_RIGHT, {1,1,1,1,1,1}},
                                                          {UNKNOWN, {}}};
-static std::map<int, std::vector<int>> gearbox_ratio = {{FPGA_LEFT, {}},
+static std::map<int, std::vector<int>> gear_box_ratio = {{FPGA_LEFT, {}},
                                                              {FPGA_RIGHT, {1,1,1,1,1,1}},
                                                              {UNKNOWN, {}}};
 
