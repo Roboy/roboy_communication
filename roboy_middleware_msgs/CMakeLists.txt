@@ -7,7 +7,7 @@ find_package(catkin REQUIRED cmake_modules COMPONENTS
         roscpp
         std_msgs
         geometry_msgs
-		        std_srvs
+		    std_srvs
         message_generation
         )
 include_directories(    include
@@ -26,8 +26,8 @@ add_message_files(
         DarkRoomSensor.msg
         DarkRoomStatistics.msg
         DarkRoomStatus.msg
-        FingerCommand.msg
         HandCommand.msg
+		JointStatus.msg
         LighthousePoseCorrection.msg
         MagneticSensor.msg
 		MotorAngle.msg
@@ -46,6 +46,7 @@ add_service_files(
 		FrameIK.srv
 		ForwardKinematics.srv
         InverseKinematics.srv
+        InverseKinematicsMultipleFrames.srv
         JointController.srv
 		MotorCalibrationService.srv
         MotorConfigService.srv
@@ -60,5 +61,5 @@ generate_messages(
         DEPENDENCIES std_msgs geometry_msgs std_srvs
 )
 
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation 
+catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation
                 INCLUDE_DIRS include)

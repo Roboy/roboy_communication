@@ -5,6 +5,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 find_package(catkin REQUIRED cmake_modules COMPONENTS
         std_msgs
+	geometry_msgs
         message_generation
 )
 
@@ -23,7 +24,7 @@ add_message_files(
 	AudioLocation.msg
   RecognizedFaces.msg
   RecognizedSpeech.msg
-)
+  IceCream.msg)
 
 add_service_files(
     FILES
@@ -43,9 +44,10 @@ add_service_files(
 	GenerateAnswer.srv
 	GetObject.srv
 	LookAtSpeaker.srv
+	PlaySound.srv
 	QualityOfTone.srv
 	QualityOfTones.srv
-  RecognizeFaces.srv
+    RecognizeFaces.srv
 	RecognizeObject.srv
 	RecognizeSpeech.srv
 	SaveObject.srv
@@ -55,13 +57,16 @@ add_service_files(
 	Talk.srv
 	TrainSeq2Seq.srv
 	WhichTones.srv
+	DetectIceCream.srv
+	LocalizeObject.srv
 
 )
 
 generate_messages(
   DEPENDENCIES
   std_msgs
+  geometry_msgs
 )
 
-catkin_package( CATKIN_DEPENDS message_runtime std_msgs
+catkin_package( CATKIN_DEPENDS message_runtime std_msgs geometry_msgs
                 INCLUDE_DIRS)

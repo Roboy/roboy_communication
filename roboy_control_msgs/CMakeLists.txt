@@ -9,7 +9,7 @@ find_package(catkin REQUIRED cmake_modules COMPONENTS
         std_srvs
         message_generation
         actionlib_msgs
-		geometry_msgs
+		    geometry_msgs
 )
 
 include_directories(

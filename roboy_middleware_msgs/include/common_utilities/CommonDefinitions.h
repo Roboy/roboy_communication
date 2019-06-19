@@ -138,61 +138,70 @@ enum PLANE {
 #define myoBrick300NMeterPerEncoderTick(encoderTicks) ((encoderTicks)/(1024.0*62.0)*(2.0*M_PI*0.003))
 #define myoBrick300NEncoderTicksPerMeter(meter) ((meter)*(1024.0*62.0)/(2.0*M_PI*0.003))
 
+ #define springEncoderTicksPerMeter(meter) (10*1000*meter)
+ #define springMeterPerEncoderTicks(encoderTicks) (encoderTicks/(10*1000))
+
 #define NUMBER_OF_CONTROL_MODES 4
 
 enum CONTROLMODES {
     POSITION = 0,
-    VELOCITY,
-    DISPLACEMENT,
-    DISPLACEMENT_MYOBRICKS,
-    FORCE
+    VELOCITY = 1,
+    DISPLACEMENT = 2,
+    DISPLACEMENT_MYOBRICKS = 3,
+    FORCE = 4,
+    CURRENT = 5,
+    DIRECT_PWM = 6
 };
 
 typedef struct {
-    uint8_t control_mode;
-    int32_t outputPosMax = 4000; /*!< maximum control output in the positive direction in counts, max 4000*/
-    int32_t outputNegMax = -4000; /*!< maximum control output in the negative direction in counts, max -4000*/
-    int32_t spPosMax;/*<!Positive limit for the set point.*/
-    int32_t spNegMax;/*<!Negative limit for the set point.*/
-    int16_t Kp = 100;/*!<Gain of the proportional component*/
-    int16_t Ki = 0;/*!<Gain of the integral component*/
-    int16_t Kd = 0;/*!<Gain of the differential component*/
-    int16_t forwardGain = 0; /*!<Gain of  the feed-forward term*/
-    int16_t deadBand = 0;/*!<Optional deadband threshold for the control response*/
-    int16_t IntegralPosMax; /*!<Integral positive component maximum*/
-    int16_t IntegralNegMax; /*!<Integral negative component maximum*/
+    float control_mode;
+    float outputPosMax = 4000; /*!< maximum control output in the positive direction in counts, max 4000*/
+    float outputNegMax = -4000; /*!< maximum control output in the negative direction in counts, max -4000*/
+    float spPosMax;/*<!Positive limit for the set point.*/
+    float spNegMax;/*<!Negative limit for the set point.*/
+    float Kp = 100;/*!<Gain of the proportional component*/
+    float Ki = 0;/*!<Gain of the integral component*/
+    float Kd = 0;/*!<Gain of the differential component*/
+    float forwardGain = 0; /*!<Gain of  the feed-forward term*/
+    float deadBand = 0;/*!<Optional deadband threshold for the control response*/
+    float IntegralPosMax; /*!<Integral positive component maximum*/
+    float IntegralNegMax; /*!<Integral negative component maximum*/
     float radPerEncoderCount = {2 * 3.14159265359f / (2000.0f * 53.0f)};
-    int32_t outputDivider = 100; /*! This divides the output of the PID controllers */
+    float outputDivider = 100; /*! This divides the output of the PID controllers */
 } control_Parameters_t;
 
-#define NUMBER_OF_MOTORS_PER_FPGA 15
+#define NUMBER_OF_MOTORS_PER_FPGA 21
 #define NUMBER_OF_MOTORS_MYOCONTROL_0 9
 #define NUMBER_OF_MOTORS_MYOCONTROL_1 6
-#define NUMBER_OF_MOTORS_MYOCONTROL_2 0
-#define NUMBER_OF_FPGAS 5
+#define NUMBER_OF_MOTORS_MYOCONTROL_2 6
+#define NUMBER_OF_FPGAS 5 //TODO: this is kept at 5 for lazyness reasons
 
-#define HEAD 0
-#define SPINE_LEFT 1
-#define SPINE_RIGHT 2
 // the two shoulders have to have these ids, because the right shoulder has mirrored motor units, which results in
 // negative displacement on compression of the spring and needs to be dealt with in fpga PID controllers
-#define SHOULDER_LEFT 3
-#define SHOULDER_RIGHT 4
+#define FPGA_LEFT 3
+#define FPGA_RIGHT 4
 #define UNKNOWN 5
 
-static std::map<int, std::vector<int>> active_motors = {{HEAD, {9, 10, 11 ,12, 13, 14}},
-                                                        {SPINE_LEFT, {0}},
-                                                        {SPINE_RIGHT, {9, 10, 11, 12, 13, 14}},
-                                                        {SHOULDER_LEFT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}},
-                                                        {SHOULDER_RIGHT, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11}},
-                                                        {UNKNOWN, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}}};
+#define SHOULDER_LEFT 3
+#define SHOULDER_RIGHT 4
+#define LEG_LEFT 1
+#define LEG_RIGHT 2
 
-static std::map<int, std::vector<uint8_t>> myo_bricks = {{HEAD, {9, 10, 11 ,12, 13, 14}},
-                                                        {SPINE_LEFT, {}},
-                                                        {SPINE_RIGHT, {9, 10, 11, 12, 13, 14}},
-                                                        {SHOULDER_LEFT, {11, 12}},
-                                                        {SHOULDER_RIGHT, {10, 12}},
+static std::map<int, std::vector<int>> active_motors = {{FPGA_LEFT, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}},
+                                                        {FPGA_RIGHT, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}},
+                                                        {UNKNOWN, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}}};
+
+static std::map<int, std::vector<uint8_t>> myo_bricks = {{FPGA_LEFT, {}},
+                                                        {FPGA_RIGHT, {9,10,11,12,13,14}},
                                                          {UNKNOWN, {}}};
+
+
+static std::map<int, std::vector<int>> encoder_multiplier = {{FPGA_LEFT, {}},
+                                                         {FPGA_RIGHT, {1,1,1,1,1,1}},
+                                                         {UNKNOWN, {}}};
+static std::map<int, std::vector<int>> gear_box_ratio = {{FPGA_LEFT, {}},
+                                                             {FPGA_RIGHT, {1,1,1,1,1,1}},
+                                                             {UNKNOWN, {}}};
 
 typedef enum{
     MYOMUSCLE500N,
@@ -200,28 +209,57 @@ typedef enum{
     MYOBRICK100N
 }MOTORTYPE;
 
-static std::map<int, std::vector<MOTORTYPE>> motor_type = {{HEAD, {MYOBRICK100N, MYOBRICK300N, MYOBRICK100N ,MYOBRICK100N, MYOBRICK300N, MYOBRICK100N}},
-                                                         {SPINE_LEFT, {}},
-                                                         {SPINE_RIGHT, {MYOBRICK300N, MYOBRICK300N, MYOBRICK300N, MYOBRICK300N, MYOBRICK300N, MYOBRICK300N}},
-                                                         {SHOULDER_LEFT, {MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+static std::map<int, std::vector<MOTORTYPE>> motor_type = {{FPGA_LEFT, {MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                                  MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                                  MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                 MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                 MYOBRICK300N, MYOBRICK300N}},
-                                                         {SHOULDER_RIGHT, {MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                                 MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N}},
+                                                         {FPGA_RIGHT, {MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                  MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                  MYOBRICK300N, MYOBRICK300N}},
+                                                                                  MYOBRICK100N,MYOBRICK300N,
+                                                                                  MYOBRICK300N, MYOBRICK300N,
+                                                                                  MYOBRICK300N, MYOBRICK100N,
+                                                                              MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                              MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N}},
                                                            {UNKNOWN,{MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                    MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                    MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
                                                                    MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                            MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N}}};
+                                                                            MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N,
+                                                                            MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
+                                                                            MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N}}};
+static const std::vector<std::string> fpga_names = {"shoulder_left","shoulder_right"};
+static std::map<int,std::string> fpga_name_from_id = {{FPGA_LEFT,"shoulder_left"},
+                                             {FPGA_RIGHT,"shoulder_right"}};
+static std::map<std::string,int> fpga_id_from_name = {{"shoulder_left", FPGA_LEFT},
+                                                      {"shoulder_right", FPGA_RIGHT}};
+static const std::vector<std::string> bodyParts = {"head","shoulder_left","shoulder_right","leg_left","leg_right"};
+//TODO(melkonyan): remove
+static std::map<std::string,int> bodyPartIDs = {{"head", FPGA_LEFT},
+                                                {"shoulder_left", FPGA_LEFT},
+                                                {"shoulder_right", FPGA_RIGHT},
+                                                {"leg_left", FPGA_LEFT},
+                                                {"leg_right", FPGA_RIGHT},
+                                                {"unknown", UNKNOWN}};
+static std::map<std::string, int> bodyPartNameToIdMap {
+            {"shoulder_left", SHOULDER_LEFT},
+            {"shoulder_right", SHOULDER_RIGHT},
+            {"leg_left", LEG_LEFT},
+            {"leg_right", LEG_RIGHT},
+            {"unknown", UNKNOWN}};
 
-static const std::vector<std::string> bodyParts = {"head",  "spine_left",  "spine_right", "shoulder_left", "shoulder_right"};
-static std::map<std::string,int> bodyPartIDs = {{"head", HEAD}, {"spine_left", SPINE_LEFT}, {"spine_right", SPINE_RIGHT},
-                                                 {"shoulder_left", SHOULDER_LEFT}, {"shoulder_right", SHOULDER_RIGHT}, {"unknown", UNKNOWN}};
+static std::map<int, int> bodyPartToFGPAMap = {{SHOULDER_LEFT, FPGA_LEFT},
+                                               {LEG_LEFT, FPGA_LEFT},
+                                               {SHOULDER_RIGHT, FPGA_RIGHT},
+                                               {LEG_RIGHT, FPGA_RIGHT}};
+
+static std::map<std::string, std::vector<int>> body_part_motors = {{"head", {9,10,11,12,13,14}},
+                                                        {"shoulder_left", {0,1,2,3,4,5,6,7,8}},
+                                                        {"shoulder_right", {0,1,2,3,4,5,6,7,8}},
+                                                        {"leg_left", {15,16,17,18,19,20}},
+                                                        {"leg_right", {15,16,17,18,19,20}}};
 
 typedef struct {
     uint16_t fw_version;
