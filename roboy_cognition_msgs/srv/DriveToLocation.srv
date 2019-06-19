@@ -1,4 +1,4 @@
 string coordinates 
 ---
-bool success
+int16 eta
 string error_message
