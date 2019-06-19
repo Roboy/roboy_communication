@@ -38,6 +38,7 @@ add_service_files(
 	DescribeScene.srv
 	DetectFace.srv
 	DetectIntent.srv
+	DriveToLocation.srv
 	EvalSeq2Seq.srv
 	FindInstances.srv
 	FindObject.srv
