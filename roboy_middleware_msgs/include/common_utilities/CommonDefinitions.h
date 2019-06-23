@@ -138,6 +138,9 @@ enum PLANE {
 #define myoBrick300NMeterPerEncoderTick(encoderTicks) ((encoderTicks)/(1024.0*62.0)*(2.0*M_PI*0.003))
 #define myoBrick300NEncoderTicksPerMeter(meter) ((meter)*(1024.0*62.0)/(2.0*M_PI*0.003))
 
+ #define springEncoderTicksPerMeter(meter) (10*1000*meter)
+ #define springMeterPerEncoderTicks(encoderTicks) (encoderTicks/(10*1000))
+
 #define NUMBER_OF_CONTROL_MODES 4
 
 enum CONTROLMODES {
@@ -191,6 +194,14 @@ static std::map<int, std::vector<int>> active_motors = {{FPGA_LEFT, {0,1,2,3,4,5
 static std::map<int, std::vector<uint8_t>> myo_bricks = {{FPGA_LEFT, {}},
                                                         {FPGA_RIGHT, {9,10,11,12,13,14}},
                                                          {UNKNOWN, {}}};
+
+
+static std::map<int, std::vector<int>> encoder_multiplier = {{FPGA_LEFT, {}},
+                                                         {FPGA_RIGHT, {1,1,1,1,1,1}},
+                                                         {UNKNOWN, {}}};
+static std::map<int, std::vector<int>> gear_box_ratio = {{FPGA_LEFT, {}},
+                                                             {FPGA_RIGHT, {1,1,1,1,1,1}},
+                                                             {UNKNOWN, {}}};
 
 typedef enum{
     MYOMUSCLE500N,
