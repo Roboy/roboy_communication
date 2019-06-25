@@ -15,7 +15,7 @@ export DH_OPTIONS=-v
 #  https://code.ros.org/trac/ros/ticket/2977
 #  https://code.ros.org/trac/ros/ticket/3842
 export LDFLAGS=
-export PKG_CONFIG_PATH=/opt/ros/kinetic/lib/pkgconfig
+export PKG_CONFIG_PATH=/opt/ros/melodic/lib/pkgconfig
 # Explicitly enable -DNDEBUG, see:
 # 	https://github.com/ros-infrastructure/bloom/issues/327
 export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
@@ -25,7 +25,7 @@ export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
 override_dh_auto_configure:
 
 override_dh_auto_build:
-	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh"; fi && \
+	if [ -f "/opt/ros/melodic/setup.sh" ]; then . "/opt/ros/melodic/setup.sh"; fi && \
 	catkin_make_isolated --source ..
 
 override_dh_auto_test:
@@ -33,7 +33,6 @@ override_dh_auto_test:
 override_dh_shlibdeps:
 
 override_dh_auto_install:
-	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh"; fi && \
-	catkin_make_isolated --source .. --install --install-space=${CURDIR}/debian/ros-kinetic-roboy-msgs/opt/ros/kinetic -DCMAKE_BUILD_TYPE=Release
-	find ${CURDIR}/debian/ros-kinetic-roboy-msgs/opt/ros/kinetic -type f -maxdepth 1 -delete
-	
+	if [ -f "/opt/ros/melodic/setup.sh" ]; then . "/opt/ros/melodic/setup.sh"; fi && \
+	catkin_make_isolated --source .. --install --install-space=${CURDIR}/debian/ros-melodic-roboy-msgs/opt/ros/melodic -DCMAKE_BUILD_TYPE=Release
+	find ${CURDIR}/debian/ros-melodic-roboy-msgs/opt/ros/melodic -type f -maxdepth 1 -delete

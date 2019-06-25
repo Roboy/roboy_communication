@@ -22,9 +22,9 @@ add_message_files(
 	FacialFeatures.msg
 	SpeechSynthesis.msg
 	AudioLocation.msg
-    	RecognizedFaces.msg
-	IceCream.msg
-)
+  RecognizedFaces.msg
+  RecognizedSpeech.msg
+  IceCream.msg)
 
 add_service_files(
     FILES
@@ -38,12 +38,14 @@ add_service_files(
 	DescribeScene.srv
 	DetectFace.srv
 	DetectIntent.srv
+	DriveToLocation.srv
 	EvalSeq2Seq.srv
 	FindInstances.srv
 	FindObject.srv
 	GenerateAnswer.srv
 	GetObject.srv
 	LookAtSpeaker.srv
+	OrderIceCream.srv
 	PlaySound.srv
 	QualityOfTone.srv
 	QualityOfTones.srv
@@ -65,7 +67,7 @@ add_service_files(
 generate_messages(
   DEPENDENCIES
   std_msgs
-  geometry_msgs 
+  geometry_msgs
 )
 
 catkin_package( CATKIN_DEPENDS message_runtime std_msgs geometry_msgs

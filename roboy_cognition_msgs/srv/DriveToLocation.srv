@@ -1,0 +1,4 @@
+string coordinates 
+---
+int16 eta
+string error_message
