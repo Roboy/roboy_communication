@@ -1,5 +1,5 @@
 uint16 price
 uint8 payment_option
 ---
-uint8 is_paid
+uint8 amount_paid
 string error_message
