@@ -1,0 +1,7 @@
+string[] flavors
+int32[] scoops
+---
+bool[] finished_flavors
+---
+bool success 
+string error_message
