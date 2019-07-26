@@ -1,5 +1,0 @@
-string flavor
-int32 number_of_scoops
----
-bool success 
-string error_message
