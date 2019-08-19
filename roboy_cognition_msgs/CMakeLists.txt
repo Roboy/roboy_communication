@@ -3,7 +3,11 @@ project( roboy_cognition_msgs )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-find_package(catkin REQUIRED cmake_modules COMPONENTS
+find_package(catkin REQUIRED 
+	cmake_modules 
+	genmsg
+	actionlib_msgs
+	COMPONENTS
         std_msgs
 	geometry_msgs
         message_generation
@@ -45,7 +49,6 @@ add_service_files(
 	GenerateAnswer.srv
 	GetObject.srv
 	LookAtSpeaker.srv
-	OrderIceCream.srv
 	Payment.srv
 	PlaySound.srv
 	QualityOfTone.srv
@@ -65,10 +68,13 @@ add_service_files(
 
 )
 
+add_action_files(DIRECTORY action FILES OrderIceCream.action)
+
 generate_messages(
   DEPENDENCIES
   std_msgs
   geometry_msgs
+  actionlib_msgs
 )
 
 catkin_package( CATKIN_DEPENDS message_runtime std_msgs geometry_msgs
