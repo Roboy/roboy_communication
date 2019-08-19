@@ -27,6 +27,7 @@ add_message_files(
 	SpeechSynthesis.msg
 	AudioLocation.msg
   RecognizedFaces.msg
+  Faces.msg
   RecognizedSpeech.msg
   IceCream.msg)
 
