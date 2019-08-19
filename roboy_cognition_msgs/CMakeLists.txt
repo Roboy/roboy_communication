@@ -49,6 +49,7 @@ add_service_files(
 	GenerateAnswer.srv
 	GetObject.srv
 	LookAtSpeaker.srv
+	Payment.srv
 	PlaySound.srv
 	QualityOfTone.srv
 	QualityOfTones.srv
