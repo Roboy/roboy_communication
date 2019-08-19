@@ -46,10 +46,11 @@ add_service_files(
 	GetObject.srv
 	LookAtSpeaker.srv
 	OrderIceCream.srv
+	Payment.srv
 	PlaySound.srv
 	QualityOfTone.srv
 	QualityOfTones.srv
-    RecognizeFaces.srv
+    	RecognizeFaces.srv
 	RecognizeObject.srv
 	RecognizeSpeech.srv
 	SaveObject.srv
