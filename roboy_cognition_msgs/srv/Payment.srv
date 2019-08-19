@@ -3,6 +3,6 @@ uint8 payment_option
 string[] flavors
 int32[] scoops
 ---
-uint16 is_paid
+uint16 amount_paid
 string customer_name
 string error_message
