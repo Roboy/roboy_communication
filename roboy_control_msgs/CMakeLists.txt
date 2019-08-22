@@ -56,6 +56,7 @@ add_service_files(
 		SetMode.srv
 		SetControllerParameters.srv
         ShowEmotion.srv
+		TranslationalPTPMotion.srv
 )
 
 add_action_files(
