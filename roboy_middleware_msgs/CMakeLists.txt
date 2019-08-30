@@ -29,8 +29,9 @@ add_message_files(
 	ErrorNotification.msg
 	FeedbackDemo.msg
         HandCommand.msg
-		JointStatus.msg
+	InfoNotification.msg
 	InterfaceStatus.msg
+		JointStatus.msg
         LighthousePoseCorrection.msg
         MagneticSensor.msg
 		MotorAngle.msg
@@ -38,6 +39,7 @@ add_message_files(
         MotorConfig.msg
         MotorStatus.msg
 	Pose.msg
+	WarningNotification.msg
 )
 
 add_service_files(
@@ -59,6 +61,7 @@ add_service_files(
         SystemCheck.srv
         TorqueControl.srv
 		XL320.srv
+	VRPuppetStateTransmission.srv
 )
 
 generate_messages(
