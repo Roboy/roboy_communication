@@ -174,7 +174,7 @@ typedef struct {
 #define NUMBER_OF_MOTORS_MYOCONTROL_0 9
 #define NUMBER_OF_MOTORS_MYOCONTROL_1 6
 #define NUMBER_OF_MOTORS_MYOCONTROL_2 6
-#define NUMBER_OF_FPGAS 5 //TODO: this is kept at 5 for lazyness reasons
+#define NUMBER_OF_FPGAS 6 //TODO: this is kept at 5 for lazyness reasons
 
 // the two shoulders have to have these ids, because the right shoulder has mirrored motor units, which results in
 // negative displacement on compression of the spring and needs to be dealt with in fpga PID controllers
@@ -253,8 +253,8 @@ static std::map<int, std::string> fpga_name_from_id = {{RIKSHAW,    "rikshaw"},
 static std::map<std::string, int> fpga_id_from_name = {{"rikshaw",        RIKSHAW},
                                                        {"shoulder_left",  FPGA_LEFT},
                                                        {"shoulder_right", FPGA_RIGHT},
-                                                       {"arm_right", ARM_LEFT},
-                                                       {"arm_left", ARM_RIGHT}
+                                                       {"arm_right", ARM_RIGHT},
+                                                       {"arm_left", ARM_LEFT}
 };
 static const std::vector<std::string> bodyParts = {"head", "shoulder_left", "shoulder_right", "leg_left", "leg_right","arm_left", "arm_right"};
 //TODO(melkonyan): remove
