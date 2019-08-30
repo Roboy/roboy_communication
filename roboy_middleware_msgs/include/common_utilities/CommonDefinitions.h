@@ -138,8 +138,8 @@ enum PLANE {
 #define myoBrick300NMeterPerEncoderTick(encoderTicks) ((encoderTicks)/(1024.0*62.0)*(2.0*M_PI*0.003))
 #define myoBrick300NEncoderTicksPerMeter(meter) ((meter)*(1024.0*62.0)/(2.0*M_PI*0.003))
 
- #define springEncoderTicksPerMeter(meter) (10*1000*meter)
- #define springMeterPerEncoderTicks(encoderTicks) (encoderTicks/(10*1000))
+#define springEncoderTicksPerMeter(meter) (10*1000*meter)
+#define springMeterPerEncoderTicks(encoderTicks) (encoderTicks/(10*1000))
 
 #define NUMBER_OF_CONTROL_MODES 4
 
@@ -178,88 +178,111 @@ typedef struct {
 
 // the two shoulders have to have these ids, because the right shoulder has mirrored motor units, which results in
 // negative displacement on compression of the spring and needs to be dealt with in fpga PID controllers
+#define RIKSHAW 2
 #define FPGA_LEFT 3
 #define FPGA_RIGHT 4
-#define UNKNOWN 5
+#define ARM_LEFT 5
+#define ARM_RIGHT 6
 
-#define SHOULDER_LEFT 3
-#define SHOULDER_RIGHT 4
 #define LEG_LEFT 1
 #define LEG_RIGHT 2
+#define SHOULDER_LEFT 3
+#define SHOULDER_RIGHT 4
 
-static std::map<int, std::vector<int>> active_motors = {{FPGA_LEFT, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}},
-                                                        {FPGA_RIGHT, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}},
-                                                        {UNKNOWN, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}}};
+static std::map<int, std::vector<int>> active_motors = {{RIKSHAW,    {15, 16}},
+                                                        {FPGA_LEFT,  {0,  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}},
+                                                        {FPGA_RIGHT, {0,  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}},
+                                                        {ARM_LEFT,    {0,  1, 2, 3}},
+                                                        {ARM_RIGHT,    {0,  1, 2, 3}}
+};
 
-static std::map<int, std::vector<uint8_t>> myo_bricks = {{FPGA_LEFT, {}},
-                                                        {FPGA_RIGHT, {9,10,11,12,13,14}},
-                                                         {UNKNOWN, {}}};
+static std::map<int, std::vector<uint8_t>> myo_bricks = {{RIKSHAW,    {}},
+                                                         {FPGA_LEFT,  {}},
+                                                         {FPGA_RIGHT, {9, 10, 11, 12, 13, 14}},
+                                                         {ARM_LEFT,    {}},
+                                                         {ARM_RIGHT,    {}}
+};
 
 
-static std::map<int, std::vector<int>> encoder_multiplier = {{FPGA_LEFT, {}},
-                                                         {FPGA_RIGHT, {1,1,1,1,1,1}},
-                                                         {UNKNOWN, {}}};
-static std::map<int, std::vector<int>> gear_box_ratio = {{FPGA_LEFT, {}},
-                                                             {FPGA_RIGHT, {1,1,1,1,1,1}},
-                                                             {UNKNOWN, {}}};
+static std::map<int, std::vector<int>> encoder_multiplier = {{RIKSHAW,    {}},
+                                                             {FPGA_LEFT,  {}},
+                                                             {FPGA_RIGHT, {1, 1, 1, 1, 1, 1}},
+                                                             {ARM_LEFT,    {}},
+                                                             {ARM_RIGHT,    {}}
+};
+static std::map<int, std::vector<int>> gear_box_ratio = {{RIKSHAW,    {}},
+                                                         {FPGA_LEFT,  {}},
+                                                         {FPGA_RIGHT, {1, 1, 1, 1, 1, 1}},
+                                                         {ARM_LEFT,    {}},
+                                                         {ARM_RIGHT,    {}}
+};
 
-typedef enum{
+typedef enum {
     MYOMUSCLE500N,
     MYOBRICK300N,
-    MYOBRICK100N
-}MOTORTYPE;
+    MYOBRICK100N,
+    SERVOMOTOR,
+    DCMOTOR
+} MOTORTYPE;
 
-static std::map<int, std::vector<MOTORTYPE>> motor_type = {{FPGA_LEFT, {MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                 MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                 MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                 MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N}},
-                                                         {FPGA_RIGHT, {MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                  MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                  MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                                  MYOBRICK300N,MYOBRICK300N,
-                                                                                  MYOBRICK100N, MYOBRICK100N,
-                                                                                  MYOBRICK300N, MYOBRICK300N,
-                                                                              MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                              MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N}},
-                                                           {UNKNOWN,{MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                   MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                            MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N,
-                                                                            MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N,
-                                                                            MYOMUSCLE500N,MYOMUSCLE500N,MYOMUSCLE500N}}};
-static const std::vector<std::string> fpga_names = {"shoulder_left","shoulder_right"};
-static std::map<int,std::string> fpga_name_from_id = {{FPGA_LEFT,"shoulder_left"},
-                                             {FPGA_RIGHT,"shoulder_right"}};
-static std::map<std::string,int> fpga_id_from_name = {{"shoulder_left", FPGA_LEFT},
-                                                      {"shoulder_right", FPGA_RIGHT}};
-static const std::vector<std::string> bodyParts = {"head","shoulder_left","shoulder_right","leg_left","leg_right"};
+static std::map<int, std::vector<MOTORTYPE>> motor_type = {{RIKSHAW,    {MYOMUSCLE500N, MYOMUSCLE500N}},
+                                                           {FPGA_LEFT,  {MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N,
+                                                                                MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N,
+                                                                                MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N,
+                                                                                MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N,
+                                                                                                                            MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N,
+                                                                                MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N}},
+                                                           {FPGA_RIGHT, {MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N,
+                                                                                MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N,
+                                                                                MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N,
+                                                                                MYOBRICK300N,  MYOBRICK300N,
+                                                                                                              MYOBRICK100N, MYOBRICK100N,
+                                                                                                                                           MYOBRICK300N,  MYOBRICK300N,
+                                                                                MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N,
+                                                                                MYOMUSCLE500N, MYOMUSCLE500N, MYOMUSCLE500N}},
+                                                           {ARM_LEFT,    {MYOBRICK300N, MYOBRICK300N, SERVOMOTOR, DCMOTOR}},
+                                                           {ARM_RIGHT,    {MYOBRICK300N, MYOBRICK300N, SERVOMOTOR, DCMOTOR}}
+};
+static const std::vector<std::string> fpga_names = {"rikshaw", "shoulder_left", "shoulder_right", "arm_left", "arm_right"};
+static std::map<int, std::string> fpga_name_from_id = {{RIKSHAW,    "rikshaw"},
+                                                       {FPGA_LEFT,  "shoulder_left"},
+                                                       {FPGA_RIGHT, "shoulder_right"},
+                                                       {ARM_LEFT, "arm_left"},
+                                                       {ARM_RIGHT, "arm_right"}
+};
+static std::map<std::string, int> fpga_id_from_name = {{"rikshaw",        RIKSHAW},
+                                                       {"shoulder_left",  FPGA_LEFT},
+                                                       {"shoulder_right", FPGA_RIGHT},
+                                                       {"arm_right", ARM_LEFT},
+                                                       {"arm_left", ARM_RIGHT}
+};
+static const std::vector<std::string> bodyParts = {"head", "shoulder_left", "shoulder_right", "leg_left", "leg_right","arm_left", "arm_right"};
 //TODO(melkonyan): remove
-static std::map<std::string,int> bodyPartIDs = {{"head", FPGA_LEFT},
-                                                {"shoulder_left", FPGA_LEFT},
-                                                {"shoulder_right", FPGA_RIGHT},
-                                                {"leg_left", FPGA_LEFT},
-                                                {"leg_right", FPGA_RIGHT},
-                                                {"unknown", UNKNOWN}};
-static std::map<std::string, int> bodyPartNameToIdMap {
-            {"shoulder_left", SHOULDER_LEFT},
-            {"shoulder_right", SHOULDER_RIGHT},
-            {"leg_left", LEG_LEFT},
-            {"leg_right", LEG_RIGHT},
-            {"unknown", UNKNOWN}};
+static std::map<std::string, int> bodyPartIDs = {{"head",           FPGA_LEFT},
+                                                 {"shoulder_left",  FPGA_LEFT},
+                                                 {"shoulder_right", FPGA_RIGHT},
+                                                 {"leg_left",       FPGA_LEFT},
+                                                 {"leg_right",      FPGA_RIGHT},
+                                                 {"arm_left",        ARM_LEFT},
+                                                 {"arm_right",        ARM_RIGHT}
+};
+static std::map<std::string, int> bodyPartNameToIdMap{
+        {"shoulder_left",  FPGA_LEFT},
+        {"shoulder_right", FPGA_RIGHT},
+        {"leg_left",       FPGA_LEFT},
+        {"leg_right",      FPGA_RIGHT}
+};
 
-static std::map<int, int> bodyPartToFGPAMap = {{SHOULDER_LEFT, FPGA_LEFT},
-                                               {LEG_LEFT, FPGA_LEFT},
+static std::map<int, int> bodyPartToFGPAMap = {{SHOULDER_LEFT,  FPGA_LEFT},
+                                               {LEG_LEFT,       FPGA_LEFT},
                                                {SHOULDER_RIGHT, FPGA_RIGHT},
-                                               {LEG_RIGHT, FPGA_RIGHT}};
+                                               {LEG_RIGHT,      FPGA_RIGHT}};
 
-static std::map<std::string, std::vector<int>> body_part_motors = {{"head", {9,10,11,12,13,14}},
-                                                        {"shoulder_left", {0,1,2,3,4,5,6,7,8}},
-                                                        {"shoulder_right", {0,1,2,3,4,5,6,7,8}},
-                                                        {"leg_left", {15,16,17,18,19,20}},
-                                                        {"leg_right", {15,16,17,18,19,20}}};
+static std::map<std::string, std::vector<int>> body_part_motors = {{"head",           {9,  10, 11, 12, 13, 14}},
+                                                                   {"shoulder_left",  {0,  1,  2,  3,  4,  5, 6, 7, 8}},
+                                                                   {"shoulder_right", {0,  1,  2,  3,  4,  5, 6, 7, 8}},
+                                                                   {"leg_left",       {15, 16, 17, 18, 19, 20}},
+                                                                   {"leg_right",      {15, 16, 17, 18, 19, 20}}};
 
 typedef struct {
     uint16_t fw_version;
