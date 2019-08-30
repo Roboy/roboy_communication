@@ -1,4 +1,5 @@
 string flavor
 ---
-IceCream ice
+geometry_msgs/Point start_scooping
+geometry_msgs/Point end_scooping
 string error_message
