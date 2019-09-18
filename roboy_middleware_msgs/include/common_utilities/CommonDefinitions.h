@@ -243,7 +243,7 @@ static std::map<int, std::vector<MOTORTYPE>> motor_type = {{RIKSHAW,    {MYOMUSC
                                                            {ARM_LEFT,    {MYOBRICK300N, MYOBRICK300N, SERVOMOTOR, DCMOTOR}},
                                                            {ARM_RIGHT,    {MYOBRICK300N, MYOBRICK300N, SERVOMOTOR, DCMOTOR}}
 };
-static const std::vector<std::string> fpga_names = {"rikshaw", "shoulder_left", "shoulder_right", "arm_left", "arm_right"};
+static const std::vector<std::string> fpga_names = {"rikshaw", "shoulder_left", "shoulder_right"};
 static std::map<int, std::string> fpga_name_from_id = {{RIKSHAW,    "rikshaw"},
                                                        {FPGA_LEFT,  "shoulder_left"},
                                                        {FPGA_RIGHT, "shoulder_right"},
@@ -256,7 +256,7 @@ static std::map<std::string, int> fpga_id_from_name = {{"rikshaw",        RIKSHA
                                                        {"arm_right", ARM_RIGHT},
                                                        {"arm_left", ARM_LEFT}
 };
-static const std::vector<std::string> bodyParts = {"head", "shoulder_left", "shoulder_right", "leg_left", "leg_right","arm_left", "arm_right"};
+static const std::vector<std::string> bodyParts = {"head", "shoulder_left", "shoulder_right", "leg_left", "leg_right"};
 //TODO(melkonyan): remove
 static std::map<std::string, int> bodyPartIDs = {{"head",           FPGA_LEFT},
                                                  {"shoulder_left",  FPGA_LEFT},
