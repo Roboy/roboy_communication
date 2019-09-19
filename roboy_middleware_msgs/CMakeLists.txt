@@ -10,7 +10,7 @@ find_package(catkin REQUIRED cmake_modules COMPONENTS
 		    std_srvs
         message_generation
         )
-include_directories(    include
+include_directories(
                         ${catkin_INCLUDE_DIRS})
 add_message_files(
         DIRECTORY
@@ -61,5 +61,4 @@ generate_messages(
         DEPENDENCIES std_msgs geometry_msgs std_srvs
 )
 
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation
-                INCLUDE_DIRS include)
+catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation)
