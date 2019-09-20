@@ -1,9 +1,0 @@
-uint8 id
-bool power_sense
-int32[] encoder0_pos
-int32[] encoder1_pos
-int32[] encoder0_vel
-int32[] encoder1_vel
-int16[] current_phase1
-int16[] current_phase2
-int16[] current_phase3

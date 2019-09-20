@@ -33,7 +33,8 @@ add_message_files(
 		MotorAngle.msg
         MotorCommand.msg
         MotorConfig.msg
-        MotorStatus.msg
+        MotorState.msg
+        MotorInfo.msg
 )
 
 add_service_files(

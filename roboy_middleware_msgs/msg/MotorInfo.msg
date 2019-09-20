@@ -1,0 +1,13 @@
+uint8 id
+int32[] setpoint
+int32[] Kp
+int32[] Ki
+int32[] Kd
+int32[] deadband
+int32[] IntegralLimit
+int32[] PWMLimit
+int32[] pwm
+int32[] communication_quality
+int16[] current_phase1
+int16[] current_phase2
+int16[] current_phase3
