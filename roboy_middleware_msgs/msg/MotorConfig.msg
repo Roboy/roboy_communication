@@ -1,4 +1,5 @@
 int32 id
+int32[] update_frequency
 uint8[] motor
 uint8[] control_mode
 int32[] PWMLimit

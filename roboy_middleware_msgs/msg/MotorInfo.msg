@@ -1,5 +1,6 @@
 uint8 id
 int32[] setpoint
+uint8[] control_mode
 int32[] Kp
 int32[] Ki
 int32[] Kd
