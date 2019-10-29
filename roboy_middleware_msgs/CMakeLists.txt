@@ -34,6 +34,7 @@ add_message_files(
         MotorCommand.msg
         MotorConfig.msg
         MotorState.msg
+		MotorStatus.msg
         MotorInfo.msg
 )
 

@@ -1,4 +1,3 @@
-uint8 icebus
 int32[] setpoint
 uint8[] control_mode
 int32[] Kp
