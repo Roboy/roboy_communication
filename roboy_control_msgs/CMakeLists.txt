@@ -53,6 +53,7 @@ add_service_files(
         FILES
         ListItems.srv
         MoveYaw.srv
+	PerformActions.srv
 		SetMode.srv
 		SetControllerParameters.srv
         ShowEmotion.srv
