@@ -7,7 +7,7 @@ string[] target_frames
 # target position/orientation for frame in world coordinates (if applicable)
 geometry_msgs/Pose[] poses
 # position weights of the ik targets
-int8[] weights
+float64[] weights
 
 ---
 # joint names
