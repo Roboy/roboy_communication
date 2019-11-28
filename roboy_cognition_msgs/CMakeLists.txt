@@ -62,6 +62,7 @@ add_service_files(
 	ShowProperty.srv
 	ShowPropertyValue.srv
 	Talk.srv
+	TalkToFile.srv
 	TrainSeq2Seq.srv
 	WhichTones.srv
 	DetectIceCream.srv
