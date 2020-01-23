@@ -9,4 +9,4 @@ int32[] PWMLimit
 int32[] pwm
 int32[] communication_quality
 int32[] error_code
-int32[] gearBoxRatio
+int32[] neopixelColor
