@@ -1,3 +1,4 @@
+int32[] global_id
 int32[] setpoint
 int32[] encoder0_pos
 int32[] encoder1_pos
