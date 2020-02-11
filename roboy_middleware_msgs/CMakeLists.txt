@@ -16,9 +16,9 @@ add_message_files(
         DIRECTORY
         msg
         FILES
-		ADCvalue.msg
-		ArmStatus.msg
-		ArucoPose.msg
+		    ADCvalue.msg
+		    ArmStatus.msg
+		    ArucoPose.msg
         ControllerState.msg
         DanceCommand.msg
         DarkRoom.msg
@@ -27,14 +27,15 @@ add_message_files(
         DarkRoomStatistics.msg
         DarkRoomStatus.msg
         HandCommand.msg
-		JointStatus.msg
+		    JointStatus.msg
         LighthousePoseCorrection.msg
         MagneticSensor.msg
-		MotorAngle.msg
+		    MotorAngle.msg
         MotorCommand.msg
         MotorConfig.msg
+        MotorControl.msg
         MotorState.msg
-		MotorStatus.msg
+		    MotorStatus.msg
         MotorInfo.msg
 )
 
