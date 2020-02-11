@@ -44,21 +44,23 @@ add_service_files(
         DIRECTORY
         srv
         FILES
-		ControlMode.srv
+	ControlMode.srv
         DanceTrajectory.srv
-		EmergencyStop.srv
-		FrameIK.srv
-		ForwardKinematics.srv
+	EmergencyStop.srv
+	FrameIK.srv
+	ForwardKinematics.srv
         InverseKinematics.srv
         InverseKinematicsMultipleFrames.srv
         JointController.srv
-		MotorCalibrationService.srv
+	MotorCalibrationService.srv
         MotorConfigService.srv
-		MyoBrickCalibrationService.srv
-		SetInt16.srv
+        MyoBrickCalibrationService.srv
+	SetInt16.srv
+        SetStrings.srv
         SystemCheck.srv
         TorqueControl.srv
-		XL320.srv
+	XL320.srv
+
 )
 
 generate_messages(
