@@ -7,6 +7,7 @@ int32[] deadband
 int32[] IntegralLimit
 int32[] PWMLimit
 int32[] pwm
+float32[] current_limit
 int32[] communication_quality
-int32[] error_code
-int32[] neopixelColor
+string[] error_code
+uint32[] neopixelColor
