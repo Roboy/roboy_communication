@@ -1,0 +1,13 @@
+int32[] setpoint
+uint8[] control_mode
+int32[] kp
+int32[] ki
+int32[] kd
+int32[] deadband
+int32[] intergral_limit
+int32[] pwm_limit
+int32[] pwm
+float32[] current_limit
+int32[] communication_quality
+string[] error_code
+uint32[] neopixel_color

@@ -43,6 +43,7 @@ set(srv_files
 		"srv/SetMode.srv"
 		"srv/SetControllerParameters.srv"
     "srv/ShowEmotion.srv"
+		"srv/GetLinkPose.srv"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}

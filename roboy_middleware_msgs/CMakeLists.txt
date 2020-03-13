@@ -39,6 +39,11 @@ set(msg_files
 	"msg/MotorCommand.msg"
 	"msg/MotorConfig.msg"
 	"msg/MotorStatus.msg"
+	"msg/MotorControl.msg"
+	"msg/MotorState.msg"
+	"msg/MotorInfo.msg"
+	"msg/Neopixel.msg"
+
 )
 
 set(srv_files
@@ -52,9 +57,11 @@ set(srv_files
 		"srv/MotorCalibrationService.srv"
 	"srv/MotorConfigService.srv"
 		"srv/SetInt16.srv"
+		"srv/SetStrings.srv"
 	"srv/SystemCheck.srv"
 	"srv/TorqueControl.srv"
 		"srv/XL320.srv"
+		"srv/MyoBrickCalibrationService.srv"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}
