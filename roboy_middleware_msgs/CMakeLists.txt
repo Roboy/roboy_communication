@@ -6,20 +6,20 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 # if (DEFINED "ENV{SOCEDS_DEST_ROOT}")
 #     message(STATUS "cross compiling for arm")
 
-SET(ALT_DEVICE_FAMILY soc_cv_av)
-add_definitions(-D${ALT_DEVICE_FAMILY})
-MESSAGE(STATUS "fpga include dir: /home/missxa/intel/embedded//ip/altera/hps/altera_hps/hwlib/${ALT_DEVICE_FAMILY}")
+#SET(ALT_DEVICE_FAMILY soc_cv_av)
+#add_definitions(-D${ALT_DEVICE_FAMILY})
+#MESSAGE(STATUS "fpga include dir: /home/missxa/intel/embedded//ip/altera/hps/altera_hps/hwlib/${ALT_DEVICE_FAMILY}")
 
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
-include_directories(
-		/home/missxa/intel/embedded//ip/altera/hps/altera_hps/hwlib/${ALT_DEVICE_FAMILY}
-		/home/missxa/intel/embedded//ip/altera/hps/altera_hps/hwlib/include
-		/home/missxa/intel/embedded//ip/altera/hps/altera_hps/hwlib/include/${ALT_DEVICE_FAMILY}
-		)
+#include_directories(
+#		/home/missxa/intel/embedded//ip/altera/hps/altera_hps/hwlib/${ALT_DEVICE_FAMILY}
+#		/home/missxa/intel/embedded//ip/altera/hps/altera_hps/hwlib/include
+#		/home/missxa/intel/embedded//ip/altera/hps/altera_hps/hwlib/include/${ALT_DEVICE_FAMILY}
+#		)
 
 set(msg_files
 		"msg/ADCvalue.msg"
