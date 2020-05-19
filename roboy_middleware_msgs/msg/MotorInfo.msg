@@ -1,3 +1,4 @@
+int32[] global_id
 int32[] setpoint
 uint8[] control_mode
 int32[] Kp
