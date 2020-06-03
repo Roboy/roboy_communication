@@ -29,6 +29,7 @@ set(msg_files
   	"msg/TendonInitialization.msg"
   	"msg/TendonUpdate.msg"
     "msg/VisualizationControl.msg"
+    "msg/Collision.msg"
 )
 
 set(srv_files
