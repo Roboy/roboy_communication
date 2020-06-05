@@ -20,6 +20,9 @@ set(msg_files
 	"msg/DebugNotification.msg"
 	"msg/InfoNotification.msg"
 	"msg/StartRecordTrajectory.msg"
+  "msg/CageState.msg"
+  "msg/Tendon.msg"
+  "msg/ViaPoint.msg"
 	"msg/Strings.msg"
         # PerformMovementActionFeedback.msg
         # PerformMovementActionGoal.msg
@@ -50,7 +53,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
   ${srv_files}
   DEPENDENCIES
-  std_msgs std_srvs
+  std_msgs std_srvs geometry_msgs
 )
 
 
