@@ -21,7 +21,7 @@ set(msg_files
 	"msg/InfoNotification.msg"
 	"msg/StartRecordTrajectory.msg"
   "msg/CageState.msg"
-  "msg/Tendon.msg"
+  "msg/MuscleUnit.msg"
   "msg/ViaPoint.msg"
 	"msg/Strings.msg"
         # PerformMovementActionFeedback.msg
