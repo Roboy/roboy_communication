@@ -1,4 +1,4 @@
-#id of roboy link in which a collision happend
+#id of roboy link in which a collision happened
 int64 linkid
 #position of contact point on roboy in link frame
 geometry_msgs/Vector3 positiononexternalbody
