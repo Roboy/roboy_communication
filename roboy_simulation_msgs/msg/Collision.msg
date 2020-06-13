@@ -1,4 +1,5 @@
-string linkname
+#id of roboy link in which a collision happend
+int64 linkid
 #position of contact point on roboy in link frame
 geometry_msgs/Vector3 positiononexternalbody
 #contact normal on external body, pointing towards roboy
