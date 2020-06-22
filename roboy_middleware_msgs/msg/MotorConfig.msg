@@ -8,3 +8,4 @@ int32[] Ki
 int32[] Kd
 int32[] deadband
 int32[] setpoint
+float32[] current_limit
