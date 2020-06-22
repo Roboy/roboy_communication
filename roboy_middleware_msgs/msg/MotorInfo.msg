@@ -1,9 +1,9 @@
 int32[] global_id
-int32[] setpoint
+float32[] setpoint
 uint8[] control_mode
-int32[] Kp
-int32[] Ki
-int32[] Kd
+int16[] Kp
+int16[] Ki
+int16[] Kd
 int32[] deadband
 int32[] IntegralLimit
 int32[] PWMLimit
