@@ -1,3 +1,4 @@
 string link_name
 ---
 uint8 link_id
+geometry_msgs/Vector3 dimensions
