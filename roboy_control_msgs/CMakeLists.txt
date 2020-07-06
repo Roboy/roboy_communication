@@ -23,6 +23,7 @@ set(msg_files
   "msg/CageState.msg"
   "msg/MuscleUnit.msg"
   "msg/ViaPoint.msg"
+  "msg/EndEffector.msg"
 	"msg/Strings.msg"
         # PerformMovementActionFeedback.msg
         # PerformMovementActionGoal.msg
@@ -47,6 +48,7 @@ set(srv_files
 		"srv/SetControllerParameters.srv"
     "srv/ShowEmotion.srv"
 		"srv/GetLinkPose.srv"
+    "srv/GetCageEndEffectors.srv"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}
