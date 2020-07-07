@@ -1,0 +1,4 @@
+string link_name
+---
+int64 link_id
+geometry_msgs/Vector3 dimensions

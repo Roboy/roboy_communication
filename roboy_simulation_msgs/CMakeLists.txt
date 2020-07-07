@@ -38,6 +38,8 @@ set(srv_files
     "srv/GymStep.srv"
     "srv/GymReset.srv"
     "srv/GymGoal.srv"
+    "srv/LinkInfoFromName.srv"
+    "srv/LinkInfoFromId.srv"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}
