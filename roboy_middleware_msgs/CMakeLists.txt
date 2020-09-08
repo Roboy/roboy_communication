@@ -33,7 +33,6 @@ add_message_files(
 		    MotorAngle.msg
         MotorCommand.msg
         MotorConfig.msg
-        MotorControl.msg
         MotorState.msg
 		    MotorStatus.msg
         MotorInfo.msg
@@ -46,13 +45,11 @@ add_service_files(
         srv
         FILES
 	ControlMode.srv
-        DanceTrajectory.srv
 	EmergencyStop.srv
 	FrameIK.srv
 	ForwardKinematics.srv
         InverseKinematics.srv
         InverseKinematicsMultipleFrames.srv
-        JointController.srv
 	MotorCalibrationService.srv
         MotorConfigService.srv
         MyoBrickCalibrationService.srv
