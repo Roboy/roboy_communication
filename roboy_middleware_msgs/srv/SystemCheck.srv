@@ -1,6 +1,8 @@
 # if empty check all motors, otherwise only the requested
-uint8[] motorids
+uint8[] motorIDs
 ---
-# returns which control modes are functional
-bool[] position
-bool[] displacement
+# returns which mototrs are functional
+uint8[] motorIDs
+bool[] encoder0_pos
+bool[] encoder1_pos
+bool[] communication_quality
