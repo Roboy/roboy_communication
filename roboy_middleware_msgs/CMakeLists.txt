@@ -9,6 +9,7 @@ find_package(catkin REQUIRED cmake_modules COMPONENTS
         geometry_msgs
 		    std_srvs
         message_generation
+		message_runtime
         )
 include_directories(
                         ${catkin_INCLUDE_DIRS})
@@ -16,9 +17,10 @@ add_message_files(
         DIRECTORY
         msg
         FILES
-		    ADCvalue.msg
-		    ArmStatus.msg
-		    ArucoPose.msg
+		ADCvalue.msg
+		ArmStatus.msg
+		ArucoPose.msg
+		BodyPart.msg
         ControllerState.msg
         DanceCommand.msg
         DarkRoom.msg
@@ -38,6 +40,7 @@ add_message_files(
         MotorInfo.msg
         Neopixel.msg
         RoboyState.msg
+		SystemStatus.msg
 )
 
 add_service_files(
