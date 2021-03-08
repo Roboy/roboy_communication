@@ -36,6 +36,7 @@ add_message_files(
 	TendonUpdate.msg
         VisualizationControl.msg
         Collision.msg
+        ContactPoint.msg
 )
 
 add_service_files(
