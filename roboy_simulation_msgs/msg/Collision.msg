@@ -1,3 +1,3 @@
 Header header
 # contact points of the body with any other object
-ContactPoint[] contactPoints
+ContactPoint[] contact_points
