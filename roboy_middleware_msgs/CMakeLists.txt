@@ -51,6 +51,7 @@ set(srv_files
 	"srv/DanceTrajectory.srv"
 		"srv/EmergencyStop.srv"
 		"srv/FrameIK.srv"
+		"srv/InitExoforce.srv"
 		"srv/ForwardKinematics.srv"
 	"srv/InverseKinematics.srv"
 	"srv/JointController.srv"
