@@ -43,6 +43,8 @@ set(msg_files
 	"msg/MotorState.msg"
 	"msg/MotorInfo.msg"
 	"msg/Neopixel.msg"
+	"msg/InitExoforceRequest.msg"
+	"msg/ExoforceResponse.msg"
 
 )
 
