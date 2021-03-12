@@ -1,7 +1,7 @@
 # id of the link in the simulation
-int32 link_id
+int32 id
 # name of the link in the simulation
-string link_name
+string name
 # dimentions of the link
 geometry_msgs/Vector3 dimensions
 # initial pose of the link
