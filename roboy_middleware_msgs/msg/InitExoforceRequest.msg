@@ -5,5 +5,5 @@
 string[] ef_name # posible values ('left_hand'/'right_hand')
 bool[] ef_enabled
 geometry_msgs/Pose[] ef_init_pose
-
+roboy_simulation_msgs/LinkInformation[] roboy_link_information
 float32 operator_height

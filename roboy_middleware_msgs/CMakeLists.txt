@@ -14,6 +14,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(roboy_simulation_msgs REQUIRED)
 
 #include_directories(
 #		/home/missxa/intel/embedded//ip/altera/hps/altera_hps/hwlib/${ALT_DEVICE_FAMILY}
@@ -72,7 +73,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
   ${srv_files}
   DEPENDENCIES
-  std_msgs geometry_msgs
+  std_msgs geometry_msgs roboy_simulation_msgs
 )
 
 

@@ -31,7 +31,6 @@ set(msg_files
     "msg/VisualizationControl.msg"
     "msg/Collision.msg"
     "msg/LinkInformation.msg"
-    "msg/BodyInformation.msg"
 )
 
 set(srv_files
