@@ -5,3 +5,5 @@
 string[] ef_name # posible values ('left_hand'/'right_hand')
 bool[] ef_enabled
 geometry_msgs/Pose[] ef_init_pose
+
+float32 operator_height
