@@ -37,15 +37,12 @@ add_message_files(
         VisualizationControl.msg
         Collision.msg
         ContactPoint.msg
-        LinkInformation.msg
-        BodyInformation.msg
 )
 
 add_service_files(
         DIRECTORY
 		srv
         FILES
-        GetBodyInformation.srv
         UpdateControllerParameters.srv
         Energies.srv
 		GymStep.srv
