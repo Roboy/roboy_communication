@@ -1,4 +1,4 @@
 roboy_simulation_msgs/BodyInformation body_information
 ---
-int ret_code
+int8 ret_code
 string msg
