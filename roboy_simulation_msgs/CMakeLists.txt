@@ -45,7 +45,7 @@ add_service_files(
         DIRECTORY
 		srv
         FILES
-        GetBodyInformation.srv
+        UpdateBodyInformation.srv
         UpdateControllerParameters.srv
         Energies.srv
 		GymStep.srv
