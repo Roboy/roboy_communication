@@ -56,6 +56,7 @@ set(srv_files
 		"srv/EmergencyStop.srv"
 		"srv/FrameIK.srv"
 		"srv/InitExoforce.srv"
+		"srv/InitStateMapper.srv"
 		"srv/ForwardKinematics.srv"
 	"srv/InverseKinematics.srv"
 	"srv/JointController.srv"

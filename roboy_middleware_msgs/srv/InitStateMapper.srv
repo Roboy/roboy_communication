@@ -1,0 +1,5 @@
+roboy_simulation_msgs/LinkInformation[] operator_link_information
+roboy_simulation_msgs/LinkInformation[] roboy_link_information
+---
+bool success
+string message
