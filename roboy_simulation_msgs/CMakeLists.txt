@@ -31,6 +31,7 @@ set(msg_files
     "msg/VisualizationControl.msg"
     "msg/Collision.msg"
     "msg/LinkInformation.msg"
+    "msg/ContactPoint.msg"
 )
 
 set(srv_files
