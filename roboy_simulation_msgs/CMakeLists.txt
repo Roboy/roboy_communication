@@ -30,6 +30,7 @@ set(msg_files
   	"msg/TendonUpdate.msg"
     "msg/VisualizationControl.msg"
     "msg/Collision.msg"
+    "msg/ContactPoint.msg"
 )
 
 set(srv_files
