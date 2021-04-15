@@ -22,6 +22,7 @@ add_message_files(
 	msg
 	FILES
 	Behavior.msg
+	CameraPos.msg
 	ControlLeds.msg
 	Emotion.msg
 	DangerNotification.msg
@@ -29,6 +30,7 @@ add_message_files(
 	WarningNotification.msg
 	DebugNotification.msg
 	InfoNotification.msg
+	SpatialUpdate.msg
 	StartRecordTrajectory.msg
 	Strings.msg
         # PerformMovementActionFeedback.msg
