@@ -46,6 +46,7 @@ set(msg_files
 	"msg/Neopixel.msg"
 	"msg/InitExoforceRequest.msg"
 	"msg/ExoforceResponse.msg"
+    "msg/LinkInformation.msg"
 
 )
 

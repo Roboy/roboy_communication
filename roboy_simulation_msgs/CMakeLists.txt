@@ -30,7 +30,6 @@ set(msg_files
   	"msg/TendonUpdate.msg"
     "msg/VisualizationControl.msg"
     "msg/Collision.msg"
-    "msg/LinkInformation.msg"
     "msg/ContactPoint.msg"
 )
 
