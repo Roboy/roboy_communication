@@ -14,6 +14,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(roboy_simulation_msgs REQUIRED)
 
 #include_directories(
 #		/home/missxa/intel/embedded//ip/altera/hps/altera_hps/hwlib/${ALT_DEVICE_FAMILY}
@@ -43,6 +44,9 @@ set(msg_files
 	"msg/MotorState.msg"
 	"msg/MotorInfo.msg"
 	"msg/Neopixel.msg"
+	"msg/InitExoforceRequest.msg"
+	"msg/ExoforceResponse.msg"
+    "msg/LinkInformation.msg"
 
 )
 
@@ -51,6 +55,8 @@ set(srv_files
 	"srv/DanceTrajectory.srv"
 		"srv/EmergencyStop.srv"
 		"srv/FrameIK.srv"
+		"srv/InitExoforce.srv"
+		"srv/InitStateMapper.srv"
 		"srv/ForwardKinematics.srv"
 	"srv/InverseKinematics.srv"
 	"srv/JointController.srv"
@@ -68,7 +74,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
   ${srv_files}
   DEPENDENCIES
-  std_msgs geometry_msgs
+  std_msgs geometry_msgs roboy_simulation_msgs
 )
 
 

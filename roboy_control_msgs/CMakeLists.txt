@@ -25,6 +25,7 @@ set(msg_files
   "msg/ViaPoint.msg"
   "msg/EndEffector.msg"
 	"msg/Strings.msg"
+	"msg/EFPose.msg"
         # PerformMovementActionFeedback.msg
         # PerformMovementActionGoal.msg
         # PerformMovementAction.msg
