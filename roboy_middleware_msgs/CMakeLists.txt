@@ -41,6 +41,7 @@ add_message_files(
         Neopixel.msg
         RoboyState.msg
 		SystemStatus.msg
+		Force.msg
 )
 
 add_service_files(
