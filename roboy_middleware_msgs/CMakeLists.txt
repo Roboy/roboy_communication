@@ -38,6 +38,7 @@ add_message_files(
         MotorInfo.msg
         Neopixel.msg
         RoboyState.msg
+		Force.msg
 )
 
 add_service_files(
