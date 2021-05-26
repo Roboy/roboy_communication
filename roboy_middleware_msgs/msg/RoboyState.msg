@@ -1,3 +1,4 @@
+Header header
 string name
 bool[] power_sense
 bool power_5V_enabled
