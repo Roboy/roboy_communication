@@ -37,6 +37,8 @@ add_message_files(
         MotorConfig.msg
         MotorState.msg
 		    MotorStatus.msg
+        CanMotorStatus.msg
+        CanFrame.msg
         MotorInfo.msg
         Neopixel.msg
         RoboyState.msg
