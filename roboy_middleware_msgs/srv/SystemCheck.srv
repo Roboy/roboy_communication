@@ -1,8 +1,8 @@
 # if empty check all motors, otherwise only the requested
-uint8[] motorIDs
+uint8[] motor_ids
 ---
 # returns which mototrs are functional
-uint8[] motorIDs
+uint8[] motor_ids
 bool[] encoder0_pos
 bool[] encoder1_pos
 bool[] communication_quality

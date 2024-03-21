@@ -1,2 +1,2 @@
-uint32[] absAngles
-uint32[] relAngles
+uint32[] abs_angles
+uint32[] rel_angles

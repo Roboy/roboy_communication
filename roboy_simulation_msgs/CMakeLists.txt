@@ -1,58 +1,66 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project( roboy_simulation_msgs )
 
-find_package(catkin REQUIRED cmake_modules COMPONENTS
-        roscpp
-        std_msgs
-        std_srvs
-        message_generation
-        geometry_msgs
-        )
-include_directories(    include
-                        ${catkin_INCLUDE_DIRS})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-add_message_files(
-        DIRECTORY
-        msg
+# find_package(catkin REQUIRED cmake_modules COMPONENTS
+#         roscpp
+#         std_msgs
+#         std_srvs
+#         message_generation
+#         geometry_msgs
+#         )
+# include_directories(    include
+#                         ${catkin_INCLUDE_DIRS})
 
-        FILES
-        Abortion.msg
-        BodyPart.msg
-        COM.msg
-        ControllerParameters.msg
-		ControllerType.msg
-        ExternalForce.msg
-        ForceTorque.msg
-        IMU.msg
-        Input.msg
-        Joint.msg
-        JointState.msg
-        LegState.msg
-	Model.msg
-        MotorControl.msg
-        RecordingControl.msg
-        Tendon.msg
-	TendonInitialization.msg
-	TendonUpdate.msg
-        VisualizationControl.msg
-        Collision.msg
-        ContactPoint.msg
-        LinkInformation.msg
-        BodyInformation.msg
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+
+set(msg_files
+  "msg/Abortion.msg"
+  "msg/BodyPart.msg"
+  "msg/COM.msg"
+  "msg/ControllerParameters.msg"
+  "msg/ControllerType.msg"
+  "msg/ExternalForce.msg"
+  "msg/ForceTorque.msg"
+  "msg/IMU.msg"
+  "msg/Input.msg"
+  "msg/Joint.msg"
+  "msg/JointState.msg"
+  "msg/LegState.msg"
+  "msg/Model.msg"
+  "msg/MotorControl.msg"
+  "msg/RecordingControl.msg"
+  "msg/Tendon.msg"
+  "msg/TendonInitialization.msg"
+  "msg/TendonUpdate.msg"
+  "msg/VisualizationControl.msg"
+  "msg/Collision.msg"
+  "msg/ContactPoint.msg"
+  "msg/LinkInformation.msg"
+  "msg/BodyInformation.msg"
 )
 
-add_service_files(
-        DIRECTORY
-		srv
-        FILES
-        UpdateBodyInformation.srv
-        UpdateControllerParameters.srv
-        Energies.srv
-		GymStep.srv
-		GymReset.srv
-		GymGoal.srv
+set(srv_files
+  "srv/UpdateBodyInformation.srv"
+  "srv/UpdateControllerParameters.srv"
+  "srv/Energies.srv"
+  "srv/GymStep.srv"
+  "srv/GymReset.srv"
+  "srv/GymGoal.srv"
 )
 
-generate_messages(DEPENDENCIES std_msgs std_srvs geometry_msgs)
 
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation)
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  ${srv_files}
+  DEPENDENCIES
+  std_msgs geometry_msgs builtin_interfaces
+)
+
+ament_export_dependencies(rosidl_default_runtime)
+ament_package()

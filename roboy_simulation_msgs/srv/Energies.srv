@@ -1,6 +1,6 @@
 ---
-float64 E_speed
-float64 E_headvel
-float64 E_headori
-float64 E_slide
-float64 E_effort
+float64 e_speed
+float64 e_headvel
+float64 e_headori
+float64 e_slide
+float64 e_effort

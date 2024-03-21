@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
-project( roboy_communication )
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+project( ros2_roboy_communication )
 
 add_subdirectory(roboy_cognition_msgs)
 add_subdirectory(roboy_control_msgs)

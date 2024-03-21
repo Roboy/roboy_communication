@@ -1,80 +1,85 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project( roboy_control_msgs )
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-find_package(catkin REQUIRED cmake_modules COMPONENTS
-        roscpp
-        std_msgs
-        std_srvs
-        message_generation
-        actionlib_msgs
-		    geometry_msgs
+# find_package(catkin REQUIRED cmake_modules COMPONENTS
+#         roscpp
+#         std_msgs
+#         std_srvs
+#         message_generation
+#         actionlib_msgs
+# 		    geometry_msgs
+# )
+
+# include_directories(
+#         # include
+#         ${catkin_INCLUDE_DIRS}
+# )
+
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
+set(msg_files
+  "msg/Behavior.msg"
+  "msg/CameraPos.msg"
+  "msg/ControlLeds.msg"
+  "msg/DangerNotification.msg"
+  "msg/DebugNotification.msg"
+  "msg/Emotion.msg"
+  "msg/EndEffector.msg"
+  "msg/ErrorNotification.msg"
+  "msg/InfoNotification.msg"
+  "msg/MuscleUnit.msg"
+  "msg/SpatialUpdate.msg"
+  "msg/StartRecordTrajectory.msg"
+  "msg/Strings.msg"
+  "msg/ViaPoint.msg"
+  "msg/WarningNotification.msg"
+  # "msg/PerformMovementActionFeedback.msg"
+  # "msg/PerformMovementActionGoal.msg"
+  # "msg/PerformMovementAction.msg"
+  # "msg/PerformMovementActionResult.msg"
+  # "msg/PerformMovementFeedback.msg"
+  # "msg/PerformMovementGoal.msg"
+  # "msg/PerformMovementResult.msg"
+  # "msg/PerformMovementsActionFeedback.msg"
+  # "msg/PerformMovementsActionGoal.msg"
+  # "msg/PerformMovementsAction.msg"
+  # "msg/PerformMovementsActionResult.msg"
+  # "msg/PerformMovementsFeedback.msg"
+  # "msg/PerformMovementsGoal.msg"
+  # "msg/PerformMovementsResult.msg"
 )
 
-include_directories(
-        # include
-        ${catkin_INCLUDE_DIRS}
+set(srv_files
+  "srv/GetLinkPose.srv"
+  "srv/ListItems.srv"
+  "srv/MoveYaw.srv"
+  "srv/SetControllerParameters.srv"
+  "srv/SetMode.srv"
+  "srv/ShowEmotion.srv"
+  "srv/TranslationalPTPMotion.srv"
 )
 
-add_message_files(
-	DIRECTORY
-	msg
-	FILES
-	Behavior.msg
-	CameraPos.msg
-	ControlLeds.msg
-	Emotion.msg
-	DangerNotification.msg
-	ErrorNotification.msg
-	WarningNotification.msg
-	DebugNotification.msg
-	InfoNotification.msg
-	SpatialUpdate.msg
-	StartRecordTrajectory.msg
-	Strings.msg
-        # PerformMovementActionFeedback.msg
-        # PerformMovementActionGoal.msg
-        # PerformMovementAction.msg
-        # PerformMovementActionResult.msg
-        # PerformMovementFeedback.msg
-        # PerformMovementGoal.msg
-        # PerformMovementResult.msg
-        # PerformMovementsActionFeedback.msg
-        # PerformMovementsActionGoal.msg
-        # PerformMovementsAction.msg
-        # PerformMovementsActionResult.msg
-        # PerformMovementsFeedback.msg
-        # PerformMovementsGoal.msg
-        # PerformMovementsResult.msg
+set(action_files
+  "action/LookAt.action"
+  "action/MoveEndEffector.action"
+  "action/PerformMovement.action"
+  "action/PerformMovements.action"
 )
 
-add_service_files(
-        DIRECTORY
-        srv
-        FILES
-        ListItems.srv
-        MoveYaw.srv
-		SetMode.srv
-		SetControllerParameters.srv
-        ShowEmotion.srv
-		TranslationalPTPMotion.srv    
-        GetLinkPose.srv
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  ${srv_files}
+  ${action_files}
+  DEPENDENCIES
+  std_msgs std_srvs geometry_msgs
 )
 
-add_action_files(
-        DIRECTORY
-        action
-        FILES
-        LookAt.action
-        MoveEndEffector.action
-        PerformMovement.action
-        PerformMovements.action
-)
-
-generate_messages(
-        DEPENDENCIES std_msgs std_srvs actionlib_msgs geometry_msgs
-)
-
-catkin_package( CATKIN_DEPENDS roscpp message_runtime message_generation actionlib_msgs
-                INCLUDE_DIRS)
+ament_export_dependencies(rosidl_default_runtime)
+ament_package()
