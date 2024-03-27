@@ -3,20 +3,6 @@ project( roboy_cognition_msgs )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-# find_package(catkin REQUIRED 
-# 	cmake_modules 
-# 	genmsg
-# 	actionlib_msgs
-# 	COMPONENTS
-#         std_msgs
-# 	geometry_msgs
-#         message_generation
-# )
-
-# include_directories(
-#         ${catkin_INCLUDE_DIRS}
-# )
-
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
@@ -26,15 +12,15 @@ find_package(builtin_interfaces REQUIRED)
 set(msg_files
   "msg/AudioData.msg"
   "msg/AudioInfo.msg"
+  "msg/AudioLocation.msg"
   "msg/DirectionVector.msg"
   "msg/FaceCoordinates.msg"
-  "msg/FacialFeatures.msg"
-  "msg/SpeechSynthesis.msg"
-  "msg/AudioLocation.msg"
-  "msg/RecognizedFaces.msg"
   "msg/Faces.msg"
-  "msg/RecognizedSpeech.msg"
+  "msg/FacialFeatures.msg"
   "msg/IceCream.msg"
+  "msg/RecognizedFaces.msg"
+  "msg/RecognizedSpeech.msg"
+  "msg/SpeechSynthesis.msg"
 )
 
 set(srv_files
@@ -47,6 +33,7 @@ set(srv_files
   "srv/DataQuery.srv"
   "srv/DescribeScene.srv"
   "srv/DetectFace.srv"
+  "srv/DetectIceCream.srv"
   "srv/DetectIntent.srv"
   "srv/DriveToLocation.srv"
   "srv/EvalSeq2Seq.srv"
@@ -54,6 +41,7 @@ set(srv_files
   "srv/FindObject.srv"
   "srv/GenerateAnswer.srv"
   "srv/GetObject.srv"
+  "srv/LocalizeObject.srv"
   "srv/LookAtSpeaker.srv"
   "srv/Payment.srv"
   "srv/PlaySound.srv"
@@ -70,8 +58,6 @@ set(srv_files
   "srv/TalkToFile.srv"
   "srv/TrainSeq2Seq.srv"
   "srv/WhichTones.srv"
-  "srv/DetectIceCream.srv"
-  "srv/LocalizeObject.srv"
 )
 
 set(action_files

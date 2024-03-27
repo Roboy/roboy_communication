@@ -3,17 +3,6 @@ project( roboy_middleware_msgs )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-# find_package(catkin REQUIRED cmake_modules COMPONENTS
-#         roscpp
-#         std_msgs
-#         geometry_msgs
-# 		    std_srvs
-#         message_generation
-# 		message_runtime
-#         )
-# include_directories(
-#                         ${catkin_INCLUDE_DIRS})
-
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)

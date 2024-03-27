@@ -3,25 +3,12 @@ project( roboy_control_msgs )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-# find_package(catkin REQUIRED cmake_modules COMPONENTS
-#         roscpp
-#         std_msgs
-#         std_srvs
-#         message_generation
-#         actionlib_msgs
-# 		    geometry_msgs
-# )
-
-# include_directories(
-#         # include
-#         ${catkin_INCLUDE_DIRS}
-# )
 
 find_package(ament_cmake REQUIRED)
+find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
-find_package(geometry_msgs REQUIRED)
 
 set(msg_files
   "msg/Behavior.msg"

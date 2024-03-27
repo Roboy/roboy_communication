@@ -3,30 +3,24 @@ project( roboy_simulation_msgs )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-# find_package(catkin REQUIRED cmake_modules COMPONENTS
-#         roscpp
-#         std_msgs
-#         std_srvs
-#         message_generation
-#         geometry_msgs
-#         )
-# include_directories(    include
-#                         ${catkin_INCLUDE_DIRS})
-
 find_package(ament_cmake REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(geometry_msgs REQUIRED)
-find_package(builtin_interfaces REQUIRED)
 
 set(msg_files
   "msg/Abortion.msg"
+  "msg/BodyInformation.msg"
   "msg/BodyPart.msg"
+  "msg/Collision.msg"
   "msg/COM.msg"
+  "msg/ContactPoint.msg"
   "msg/ControllerParameters.msg"
   "msg/ControllerType.msg"
   "msg/ExternalForce.msg"
   "msg/ForceTorque.msg"
+  "msg/LinkInformation.msg"
   "msg/IMU.msg"
   "msg/Input.msg"
   "msg/Joint.msg"
@@ -39,21 +33,16 @@ set(msg_files
   "msg/TendonInitialization.msg"
   "msg/TendonUpdate.msg"
   "msg/VisualizationControl.msg"
-  "msg/Collision.msg"
-  "msg/ContactPoint.msg"
-  "msg/LinkInformation.msg"
-  "msg/BodyInformation.msg"
 )
 
 set(srv_files
-  "srv/UpdateBodyInformation.srv"
-  "srv/UpdateControllerParameters.srv"
   "srv/Energies.srv"
   "srv/GymStep.srv"
   "srv/GymReset.srv"
   "srv/GymGoal.srv"
+  "srv/UpdateBodyInformation.srv"
+  "srv/UpdateControllerParameters.srv"
 )
-
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
